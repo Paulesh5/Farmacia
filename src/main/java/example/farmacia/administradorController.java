@@ -186,8 +186,10 @@ public class administradorController {
             usuarioForm.setVisible(false);
             productosForm.setVisible(false);
         }else if (event.getSource() == usuariosBoton){
+            addListaDatosUsuariosMostrar();
             homeForm.setVisible(false);
             usuarioForm.setVisible(true);
+            addListaDatosUsuariosMostrar();
             productosForm.setVisible(false);
         }else if (event.getSource() == productosBoton){
             homeForm.setVisible(false);
@@ -203,6 +205,56 @@ public class administradorController {
     @FXML
     void actualizarUsuarioBoton(ActionEvent event) {
 
+        String sql = "UPDATE CAJERO SET Nombre = '"
+                + nombreUsuarioIngreso.getText() + "', Apellido = '"
+                + apellidoUsuarioIngreso.getText() + "', Cedula = '"
+                + cedulaUsuarioIngreso.getText() + "', Edad = '"
+                + edadUsuarioIngreso.getText() + "', Correo = '"
+                + correoUsuarioIngreso.getText() + "', Password = '"
+                + passwordUsuarioIngreso.getText() + "' WHERE Usuario ='"
+                + usuarioIngreso.getText() + "'";
+
+        connect = database.connectDb();
+
+        try {
+            Alert alert;
+            if (usuarioIngreso.getText().isEmpty()
+                    || nombreUsuarioIngreso.getText().isEmpty()
+                    || apellidoUsuarioIngreso.getText().isEmpty()
+                    || cedulaUsuarioIngreso.getText().isEmpty()
+                    || edadUsuarioIngreso.getText().isEmpty()
+                    || correoUsuarioIngreso.getText().isEmpty()
+                    || passwordUsuarioIngreso.getText().isEmpty()) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Mensaje Eroor");
+                alert.setHeaderText(null);
+                alert.setContentText("Por favor llenar todos los campos");
+                alert.showAndWait();
+            } else {
+                alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Mensaje confirmación");
+                alert.setHeaderText(null);
+                alert.setContentText("Seguro que desea actualizar el Usuario: " + usuarioIngreso.getText() + "?");
+                Optional<ButtonType> option = alert.showAndWait();
+
+                if (option.get().equals(ButtonType.OK)) {
+                    statement = connect.createStatement();
+                    statement.executeUpdate(sql);
+
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Mensaje Informativo");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Actualización correcta!");
+                    alert.showAndWait();
+                    addListaDatosUsuariosMostrar();
+                    limpiarFormulario();
+                }
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -212,7 +264,44 @@ public class administradorController {
 
     @FXML
     void buscarUsuarioBoton(ActionEvent event) {
+        String sql = "SELECT * FROM CAJERO WHERE Usuario = '"
+                + buscarUsuarioIngreso.getText() + "'";
 
+        connect = database.connectDb();
+
+        try {
+            Alert alert;
+            statement = connect.createStatement();
+            result = statement.executeQuery(sql);
+
+            if (result.next()) {
+                prepare = connect.prepareStatement(sql);
+                usuarioIngreso.setText(result.getString("Usuario"));
+                nombreUsuarioIngreso.setText(result.getString("Nombre"));
+                apellidoUsuarioIngreso.setText(result.getString("Apellido"));
+                cedulaUsuarioIngreso.setText(result.getString("Cedula"));
+                edadUsuarioIngreso.setText(result.getString("Edad"));
+                correoUsuarioIngreso.setText(result.getString("Correo"));
+                passwordUsuarioIngreso.setText(result.getString("Password"));
+                buscarUsuarioIngreso.setText("");
+
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Mensaje informativo");
+                alert.setHeaderText(null);
+                alert.setContentText("Usuario encontrado en la base de datos.");
+                alert.showAndWait();
+                addListaDatosUsuariosMostrar();
+            } else {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Mensaje Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Usuario: " + usuarioIngreso.getText() + " no existe en la base de datos.");
+                alert.showAndWait();
+                buscarUsuarioIngreso.setText("");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -312,7 +401,56 @@ public class administradorController {
 
     @FXML
     void eliminarUsuarioBoton(ActionEvent event) {
+        String sql = "DELETE FROM CAJERO WHERE Usuario = '"
+                + usuarioIngreso.getText() + "'";
 
+        connect = database.connectDb();
+
+        try {
+
+            Alert alert;
+            if (usuarioIngreso.getText().isEmpty()
+                    || nombreUsuarioIngreso.getText().isEmpty()
+                    || apellidoUsuarioIngreso.getText().isEmpty()
+                    || cedulaUsuarioIngreso.getText().isEmpty()
+                    || edadUsuarioIngreso.getText().isEmpty()
+                    || correoUsuarioIngreso.getText().isEmpty()
+                    || passwordUsuarioIngreso.getText().isEmpty()) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Mensaje Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Por favor llenar todos los campos");
+                alert.showAndWait();
+            } else {
+                alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Mensaje confirmación");
+                alert.setHeaderText(null);
+                alert.setContentText("Está seguro de eliminar el Usuario: " + usuarioIngreso.getText() + "?");
+                Optional<ButtonType> option = alert.showAndWait();
+
+                if (option.get().equals(ButtonType.OK)) {
+                    statement = connect.createStatement();
+                    statement.executeUpdate(sql);
+
+                    String deleteInfo = "DELETE FROM CAJERO WHERE Usuario = '"
+                            + usuarioIngreso.getText() + "'";
+
+                    prepare = connect.prepareStatement(deleteInfo);
+                    prepare.executeUpdate();
+
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Successfully Deleted!");
+                    alert.showAndWait();
+                    addListaDatosUsuariosMostrar();
+                    limpiarFormulario();
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -329,9 +467,11 @@ public class administradorController {
         edadUsuarioIngreso.setText("");
         correoUsuarioIngreso.setText("");
         passwordUsuarioIngreso.setText("");
+        addListaDatosUsuariosMostrar();
     }
 
-    public void iniciar(URL location, ResourceBundle resources){
+    public void initialize(URL location, ResourceBundle resources){
+        displayNombreAdmin();
         addListaDatosUsuariosMostrar();
     }
 }//2:04:46
