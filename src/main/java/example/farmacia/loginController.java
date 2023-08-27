@@ -37,7 +37,9 @@ public class loginController {
         String rolSeleccionado = usuarioComboBox.getValue();
 
         if (validarCredenciales(usuario, pass, rolSeleccionado)) {
+            getData.adminNombre = usuarioIngreso.getText();
             cargarVista(event,rolSeleccionado.toLowerCase() + ".fxml");
+
         }else {
             mostrarMensajeError("Credenciales incorrectas", "El usuario o la contraseña son incorrectos.");
         }

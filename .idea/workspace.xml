@@ -4,23 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/administradorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/cajeroController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/loginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/menuPrincipalController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/Login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/administrador.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/cajero.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Login">
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/datosUsuarios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/getData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/menu-principal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/administradorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/administradorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/loginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/administrador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/administrador.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +51,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "P:/Librerias Java/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar",
+    "last_opened_file_path": "P:/Librerias Java/fontawesomefx-8.0.1.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -88,12 +78,24 @@
       <updated>1692843336469</updated>
       <workItem from="1692843337487" duration="978000" />
       <workItem from="1693089519826" duration="4909000" />
-      <workItem from="1693098071576" duration="7428000" />
+      <workItem from="1693098071576" duration="12693000" />
     </task>
+    <task id="LOCAL-00001" summary="Login">
+      <created>1693110488734</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1693110488734</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
