@@ -69,10 +69,11 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="usuarioForm" layoutX="118.0" layoutY="46.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="usuarioForm" layoutX="118.0" layoutY="46.0" prefHeight="555.0" prefWidth="889.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="528.0" prefWidth="861.0">
                                  <children>
+                                    <TextField fx:id="passwordUsuarioIngreso" layoutX="109.0" layoutY="436.0" prefHeight="26.0" prefWidth="193.0" />
                                     <AnchorPane layoutX="4.0" layoutY="14.0" prefHeight="283.0" prefWidth="859.0">
                                        <children>
                                           <TableView fx:id="usuarioTabla" layoutX="10.0" layoutY="42.0" prefHeight="227.0" prefWidth="840.0">
@@ -129,6 +130,11 @@
                                     <Button layoutX="632.0" layoutY="462.0" mnemonicParsing="false" onAction="#eliminarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Eliminar" />
                                     <Button layoutX="527.0" layoutY="462.0" mnemonicParsing="false" onAction="#crearUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Crear" />
                                     <Button layoutX="418.0" layoutY="462.0" mnemonicParsing="false" onAction="#limpiarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Limpiar" />
+                                    <Label layoutX="24.0" layoutY="440.0" text="Contraseña:">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                               </AnchorPane>
                            </children>

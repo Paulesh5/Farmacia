@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Login">
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/datosUsuarios.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/getData.java" afterDir="false" />
+    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Menu administrador">
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/administradorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/administradorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/loginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/datosUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/datosUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/getData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/getData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/administrador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/administrador.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +79,7 @@
       <updated>1692843336469</updated>
       <workItem from="1692843337487" duration="978000" />
       <workItem from="1693089519826" duration="4909000" />
-      <workItem from="1693098071576" duration="12693000" />
+      <workItem from="1693098071576" duration="18704000" />
     </task>
     <task id="LOCAL-00001" summary="Login">
       <created>1693110488734</created>
@@ -87,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693110488734</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Menu administrador">
+      <created>1693125896020</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1693125896020</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,7 +103,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Login" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login" />
+    <MESSAGE value="Menu administrador" />
+    <option name="LAST_COMMIT_MESSAGE" value="Menu administrador" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
