@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Conexion base de datos y crear usuario">
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/icons8-añadir-usuario-masculino-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/icons8-farmacia-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/icons8-gerente-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/icons8-lupa-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/icons8-mejoras-económicas-96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/icons8-píldora-96.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Iconos 2">
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/owl_pharma.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/menu-principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/menu-principal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +102,23 @@
       <option name="project" value="LOCAL" />
       <updated>1693132099032</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Iconos">
+      <option name="closed" value="true" />
+      <created>1693321116933</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1693321116933</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Iconos 2">
+      <option name="closed" value="true" />
+      <created>1693321137220</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1693321137220</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,7 +129,9 @@
     <MESSAGE value="Login" />
     <MESSAGE value="Menu administrador" />
     <MESSAGE value="Conexion base de datos y crear usuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="Conexion base de datos y crear usuario" />
+    <MESSAGE value="Iconos" />
+    <MESSAGE value="Iconos 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Iconos 2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
