@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Conexion base de datos y crear usuario">
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/icons8-añadir-usuario-masculino-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/icons8-farmacia-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/icons8-gerente-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/icons8-lupa-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/icons8-mejoras-económicas-96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/imagenes/icons8-píldora-96.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/administradorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/administradorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/menu-principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/menu-principal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,35 +38,39 @@
     </option>
   </component>
   <component name="MavenRunner">
-    <option name="vmOptions" value="--module-path &quot;P:\Librerias Java\javafx-sdk-20.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+    <option name="vmOptions" value="--module-path &quot;C:\Users\POO\Desktop\POO2023\javafx-sdk-20.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
   </component>
   <component name="ProjectId" id="2UPZmUf1j4fC9e2T1KkNTOKx6uw" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;P:/Librerias Java/fontawesomefx-8.0.1.jar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/POO/IdeaProjects/Farmacia/src/main/java/example/farmacia/imagenes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\POO\IdeaProjects\Farmacia\src\main\java\example\farmacia\imagenes" />
       <recent name="C:\Users\Paul\IdeaProjects\Farmacia\src\main\resources\example\farmacia" />
     </key>
   </component>
@@ -105,6 +115,7 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Login" />
     <MESSAGE value="Menu administrador" />
     <MESSAGE value="Conexion base de datos y crear usuario" />
