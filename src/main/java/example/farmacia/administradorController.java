@@ -35,7 +35,7 @@ public class administradorController {
     private TextField cedulaUsuarioIngreso;
 
     @FXML
-    private TableColumn<?, ?> codigoProductoColumnaTabla;
+    private TableColumn<datosProductos, String> codigoProductoColumnaTabla;
 
     @FXML
     private TextField codigoProductoIngreso;
@@ -65,7 +65,7 @@ public class administradorController {
     private Label nombreAdmin;
 
     @FXML
-    private TableColumn<?, ?> nombreProductoColumnaTabla;
+    private TableColumn<datosProductos, String> nombreProductoColumnaTabla;
 
     @FXML
     private TextField nombreProductoIngreso;
@@ -80,16 +80,22 @@ public class administradorController {
     private TextField passwordUsuarioIngreso;
 
     @FXML
+    private TableColumn<datosProductos, String> precioProductoColumnaTabla;
+
+    @FXML
+    private TextField precioProductoIngreso;
+
+    @FXML
     private Button productosBoton;
 
     @FXML
     private AnchorPane productosForm;
 
     @FXML
-    private TableView<?> productosTabla;
+    private TableView<datosProductos> productosTabla;
 
     @FXML
-    private TableColumn<?, ?> stockProductoColumnaTabla;
+    private TableColumn<datosProductos, String> stockProductoColumnaTabla;
 
     @FXML
     private TextField stockProductoIngreso;
@@ -146,7 +152,31 @@ public class administradorController {
         return listaDatos;
     }
 
+    public ObservableList<datosProductos> addListaDatosProductos(){
+
+        ObservableList<datosProductos> listaDatosP = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM PRODUCTOS";
+
+        connect = database.connectDb();
+
+        try{
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            datosProductos datoProducto;
+
+            while (result.next()){
+                datoProducto = new datosProductos(result.getInt("Codigo")
+                        , result.getString("Nombre")
+                        , result.getFloat("Precio_por_unidad")
+                        , result.getInt("Stock"));
+                listaDatosP.add(datoProducto);
+            }
+        }catch (Exception e){e.printStackTrace();}
+        return listaDatosP;
+    }
+
     private ObservableList<datosUsuarios> addListaDatosUsuarios;
+    private ObservableList<datosProductos> addListaDatosProductos;
     public void addListaDatosUsuariosMostrar(){
         addListaDatosUsuarios = addListaDatosUsuarios();
 
@@ -158,6 +188,16 @@ public class administradorController {
         correoUsuarioColumnaTabla.setCellValueFactory(new PropertyValueFactory<>("correo"));
 
         usuarioTabla.setItems(addListaDatosUsuarios);
+    }
+    public void addListaDatosProductosMostrar(){
+        addListaDatosProductos = addListaDatosProductos();
+
+        codigoProductoColumnaTabla.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+        nombreProductoColumnaTabla.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        precioProductoColumnaTabla.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        stockProductoColumnaTabla.setCellValueFactory(new PropertyValueFactory<>("stock"));
+
+        productosTabla.setItems(addListaDatosProductos);
     }
 
     public void addUsuariosSelect(){
@@ -175,6 +215,21 @@ public class administradorController {
         edadUsuarioIngreso.setText(String.valueOf(datoUsuario.getEdad()));
         correoUsuarioIngreso.setText(datoUsuario.getCorreo());
         passwordUsuarioIngreso.setText("**********");
+    }
+
+    public void addProductosSelect(){
+        datosProductos datoProducto = productosTabla.getSelectionModel().getSelectedItem();
+        int num = productosTabla.getSelectionModel().getSelectedIndex();
+
+        if((num - 1) < -1){
+            return;
+        }
+
+        codigoProductoIngreso.setText(String.valueOf(datoProducto.getCodigo()));
+        nombreProductoIngreso.setText(datoProducto.getNombre());
+        precioProductoIngreso.setText(String.valueOf(datoProducto.getPrecio()));
+        stockProductoIngreso.setText(String.valueOf(datoProducto.getStock()));
+
     }
 
     public void displayNombreAdmin(){
@@ -195,11 +250,55 @@ public class administradorController {
             homeForm.setVisible(false);
             usuarioForm.setVisible(false);
             productosForm.setVisible(true);
+            addListaDatosProductosMostrar();
         }
     }
     @FXML
     void actualizarProductoBoton(ActionEvent event) {
+        String sql = "UPDATE PRODUCTOS SET Nombre = '"
+                + nombreProductoIngreso.getText() + "', Precio_por_unidad = "
+                + precioProductoIngreso.getText() + ", Stock = "
+                + stockProductoIngreso.getText() + " WHERE Codigo ="
+                + codigoProductoIngreso.getText();
 
+        connect = database.connectDb();
+
+        try {
+            Alert alert;
+            if (codigoProductoIngreso.getText().isEmpty()
+                    || nombreProductoIngreso.getText().isEmpty()
+                    || precioProductoIngreso.getText().isEmpty()
+                    || stockProductoIngreso.getText().isEmpty()) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Mensaje Eroor");
+                alert.setHeaderText(null);
+                alert.setContentText("Por favor llenar todos los campos");
+                alert.showAndWait();
+            } else {
+                alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Mensaje confirmación");
+                alert.setHeaderText(null);
+                alert.setContentText("Seguro que desea actualizar el Producto: " + codigoProductoIngreso.getText() + "?");
+                Optional<ButtonType> option = alert.showAndWait();
+
+                if (option.get().equals(ButtonType.OK)) {
+                    statement = connect.createStatement();
+                    statement.executeUpdate(sql);
+
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Mensaje Informativo");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Actualización correcta!");
+                    alert.showAndWait();
+                    addListaDatosProductosMostrar();
+                    limpiarFormularioP();
+                }
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -259,7 +358,40 @@ public class administradorController {
 
     @FXML
     void buscarProductoBoton(ActionEvent event) {
+        String sql = "SELECT * FROM PRODUCTOS WHERE Codigo = "
+                + codigoProductoIngreso.getText();
 
+        connect = database.connectDb();
+
+        try {
+            Alert alert;
+            statement = connect.createStatement();
+            result = statement.executeQuery(sql);
+
+            if (result.next()) {
+                prepare = connect.prepareStatement(sql);
+                codigoProductoIngreso.setText(result.getString("Codigo"));
+                nombreProductoIngreso.setText(result.getString("Nombre"));
+                precioProductoIngreso.setText(result.getString("Precio_por_unidad"));
+                stockProductoIngreso.setText(result.getString("Stock"));
+
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Mensaje informativo");
+                alert.setHeaderText(null);
+                alert.setContentText("Usuario encontrado en la base de datos.");
+                alert.showAndWait();
+                addListaDatosProductosMostrar();
+            } else {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Mensaje Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Producto: " + codigoProductoIngreso.getText() + " no existe en la base de datos.");
+                alert.showAndWait();
+                codigoProductoIngreso.setText("");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -322,6 +454,61 @@ public class administradorController {
             }
         }catch(Exception e){e.printStackTrace();}
     }
+
+    @FXML
+    void crearProductoBoton(ActionEvent event) {
+        String sql = "INSERT INTO PRODUCTOS "
+                + "(Nombre, Precio_por_unidad, Stock) "
+                + "VALUES(?,?,?)";
+        connect = database.connectDb();
+
+        try{
+            Alert alert;
+            if (codigoProductoIngreso.getText().isEmpty()
+                    || nombreProductoIngreso.getText().isEmpty()
+                    || precioProductoIngreso.getText().isEmpty()
+                    || stockProductoIngreso.getText().isEmpty()){
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Mensaje Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Por favor llenar todos los campos");
+                alert.showAndWait();
+            }else{
+
+                String check = "SELECT Codigo FROM PRODUCTOS WHERE Codigo = "
+                        +codigoProductoIngreso.getText();
+
+                statement = connect.createStatement();
+                result = statement.executeQuery(check);
+
+                if (result.next()){
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Mensaje Error");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Producto: " + codigoProductoIngreso.getText() + " ya existe!");
+                    alert.showAndWait();
+                }else {
+
+                    prepare = connect.prepareStatement(sql);
+                    prepare.setString(1, nombreProductoIngreso.getText());
+                    prepare.setString(2, precioProductoIngreso.getText());
+                    prepare.setString(3,  stockProductoIngreso.getText());
+                    prepare.executeUpdate();
+
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Mensaje informativo");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Creado exitosamente!");
+                    alert.showAndWait();
+                    addListaDatosProductosMostrar();
+                    limpiarFormularioP();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     void crearUsuarioBoton(ActionEvent event) {
@@ -394,9 +581,62 @@ public class administradorController {
         passwordUsuarioIngreso.setText("");
     }
 
+    public void limpiarFormularioP(){
+        codigoProductoIngreso.setText("");
+        nombreProductoIngreso.setText("");
+        precioProductoIngreso.setText("");
+        stockProductoIngreso.setText("");
+    }
+
     @FXML
     void eliminarProductoBoton(ActionEvent event) {
+        String sql = "DELETE FROM PRODUCTOS WHERE Codigo = "
+                + codigoProductoIngreso.getText();
 
+        connect = database.connectDb();
+
+        try {
+
+            Alert alert;
+            if (codigoProductoIngreso.getText().isEmpty()
+                    || nombreProductoIngreso.getText().isEmpty()
+                    || precioProductoIngreso.getText().isEmpty()
+                    || stockProductoIngreso.getText().isEmpty()) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Mensaje Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Por favor llenar todos los campos");
+                alert.showAndWait();
+            } else {
+                alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Mensaje confirmación");
+                alert.setHeaderText(null);
+                alert.setContentText("Está seguro de eliminar el Producto: " + codigoProductoIngreso.getText() + "?");
+                Optional<ButtonType> option = alert.showAndWait();
+
+                if (option.get().equals(ButtonType.OK)) {
+                    statement = connect.createStatement();
+                    statement.executeUpdate(sql);
+
+                    String deleteInfo = "DELETE FROM PRODUCTOS WHERE Codigo = "
+                            + codigoProductoIngreso.getText();
+
+                    prepare = connect.prepareStatement(deleteInfo);
+                    prepare.executeUpdate();
+
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Mensaje informativo");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Eliminación exitosa!");
+                    alert.showAndWait();
+                    addListaDatosProductosMostrar();
+                    limpiarFormularioP();
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -439,9 +679,9 @@ public class administradorController {
                     prepare.executeUpdate();
 
                     alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Information Message");
+                    alert.setTitle("Mensaje informativo");
                     alert.setHeaderText(null);
-                    alert.setContentText("Successfully Deleted!");
+                    alert.setContentText("Eliminación exitosa!");
                     alert.showAndWait();
                     addListaDatosUsuariosMostrar();
                     limpiarFormulario();
@@ -455,23 +695,19 @@ public class administradorController {
 
     @FXML
     void limpiarProductoBoton(ActionEvent event) {
-
+        limpiarFormularioP();
+        addListaDatosProductosMostrar();
     }
 
     @FXML
     void limpiarUsuarioBoton(ActionEvent event) {
-        usuarioIngreso.setText("");
-        nombreUsuarioIngreso.setText("");
-        apellidoUsuarioIngreso.setText("");
-        cedulaUsuarioIngreso.setText("");
-        edadUsuarioIngreso.setText("");
-        correoUsuarioIngreso.setText("");
-        passwordUsuarioIngreso.setText("");
+        limpiarFormulario();
         addListaDatosUsuariosMostrar();
     }
 
     public void initialize(URL location, ResourceBundle resources){
         displayNombreAdmin();
         addListaDatosUsuariosMostrar();
+        addListaDatosProductosMostrar();
     }
-}//2:04:46
+}//2:20:31
