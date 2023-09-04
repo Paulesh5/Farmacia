@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Usuarios">
-      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/datosProductos.java" afterDir="false" />
+    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Conexion base de datos y crear usuario">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/administradorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/administradorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/administrador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/administrador.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,8 +75,7 @@
       <workItem from="1692843337487" duration="978000" />
       <workItem from="1693089519826" duration="4909000" />
       <workItem from="1693098071576" duration="18958000" />
-      <workItem from="1693156491146" duration="5895000" />
-      <workItem from="1693794681940" duration="3953000" />
+      <workItem from="1693156491146" duration="5650000" />
     </task>
     <task id="LOCAL-00001" summary="Login">
       <created>1693110488734</created>
@@ -101,14 +98,7 @@
       <option name="project" value="LOCAL" />
       <updated>1693132099032</updated>
     </task>
-    <task id="LOCAL-00004" summary="Usuarios">
-      <created>1693162278449</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1693162278449</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,8 +108,7 @@
     <MESSAGE value="Login" />
     <MESSAGE value="Menu administrador" />
     <MESSAGE value="Conexion base de datos y crear usuario" />
-    <MESSAGE value="Usuarios" />
-    <option name="LAST_COMMIT_MESSAGE" value="Usuarios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Conexion base de datos y crear usuario" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
