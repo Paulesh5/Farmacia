@@ -22,7 +22,7 @@
       <Label layoutX="386.0" layoutY="81.0" text="Producto:" />
       <Label layoutX="356.0" layoutY="543.0" text="Total" />
       <Label layoutX="30.0" layoutY="256.0" text="Nombre" />
-      <Label layoutX="227.0" layoutY="222.0" text="DATOS CLIENTE" />
+      <Label layoutX="211.0" layoutY="224.0" text="DATOS CLIENTE" />
       <Button layoutX="509.0" layoutY="111.0" mnemonicParsing="false" text="Buscar por nombre" />
       <Spinner id="stock" accessibleHelp="Stock" accessibleRoleDescription="Stock" accessibleText="Stock" editable="true" layoutX="698.0" layoutY="77.0" prefHeight="25.0" prefWidth="68.0" />
       <TextField layoutX="442.0" layoutY="77.0" prefHeight="25.0" prefWidth="185.0" />
