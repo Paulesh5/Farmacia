@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Correccion imagenes 6">
+    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Correccion imagenes 5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/administrador.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/administrador.fxml" afterDir="false" />
     </list>
@@ -50,7 +50,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/POO/IdeaProjects/Farmacia/target/classes/example/farmacia",
+    "last_opened_file_path": "C:/Users/POO/Desktop/POO2023/javafx-sdk-20.0.2/lib",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -178,15 +178,7 @@
       <option name="project" value="LOCAL" />
       <updated>1693924207113</updated>
     </task>
-    <task id="LOCAL-00013" summary="Correccion imagenes 6">
-      <option name="closed" value="true" />
-      <created>1693925262381</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1693925262381</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,8 +195,7 @@
     <MESSAGE value="Correccion imagenes 3" />
     <MESSAGE value="Correccion imagenes 4" />
     <MESSAGE value="Correccion imagenes 5" />
-    <MESSAGE value="Correccion imagenes 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion imagenes 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion imagenes 5" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
