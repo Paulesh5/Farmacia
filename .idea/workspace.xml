@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Correccion imagenes" />
+    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Correccion imagenes 3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693918636786</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Correccion imagenes 3">
+      <option name="closed" value="true" />
+      <created>1693918806197</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1693918806197</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +173,8 @@
     <MESSAGE value="Iconos" />
     <MESSAGE value="Iconos Productos" />
     <MESSAGE value="Correccion imagenes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion imagenes" />
+    <MESSAGE value="Correccion imagenes 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion imagenes 3" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
