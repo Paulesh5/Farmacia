@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Panel Factura">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/cajeroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/cajeroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/Factura.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/cajero.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/cajero.fxml" afterDir="false" />
+    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Correccion de factura">
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/loginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,26 +45,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/POO/Desktop/POO2023/javafx-sdk-20.0.2/lib&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/davic/IdeaProjects/Farmacia1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\POO\IdeaProjects\Farmacia\src\main\resources\example\farmacia" />
@@ -103,6 +101,7 @@
       <workItem from="1693098071576" duration="18958000" />
       <workItem from="1693156491146" duration="5650000" />
       <workItem from="1694107197279" duration="1103000" />
+      <workItem from="1694120990199" duration="1032000" />
     </task>
     <task id="LOCAL-00001" summary="Login">
       <created>1693110488734</created>
@@ -211,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694108186538</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Correccion de factura">
+      <created>1694122749184</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1694122749184</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +246,8 @@
     <MESSAGE value="Correccion imagenes 4" />
     <MESSAGE value="Correccion imagenes 5" />
     <MESSAGE value="Panel Factura" />
-    <option name="LAST_COMMIT_MESSAGE" value="Panel Factura" />
+    <MESSAGE value="Correccion de factura" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion de factura" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
