@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Correccion imagenes 5">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/Factura.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/Factura.fxml" afterDir="false" />
+    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Panel Factura">
+      <change afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/FacturaController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +86,7 @@
       <workItem from="1693089519826" duration="4909000" />
       <workItem from="1693098071576" duration="18958000" />
       <workItem from="1693156491146" duration="5650000" />
-      <workItem from="1694107197279" duration="705000" />
+      <workItem from="1694107197279" duration="1103000" />
     </task>
     <task id="LOCAL-00001" summary="Login">
       <created>1693110488734</created>
@@ -181,7 +181,21 @@
       <option name="project" value="LOCAL" />
       <updated>1693924207113</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Panel Factura">
+      <created>1694107933995</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1694107933996</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Panel Factura">
+      <created>1694108186538</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1694108186538</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,7 +223,8 @@
     <MESSAGE value="Correccion imagenes 3" />
     <MESSAGE value="Correccion imagenes 4" />
     <MESSAGE value="Correccion imagenes 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion imagenes 5" />
+    <MESSAGE value="Panel Factura" />
+    <option name="LAST_COMMIT_MESSAGE" value="Panel Factura" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
