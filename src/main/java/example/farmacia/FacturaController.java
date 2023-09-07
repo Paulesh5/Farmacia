@@ -148,7 +148,6 @@ public class FacturaController {
 
     @FXML
     void SeleccionarButton(ActionEvent event) {
-
     }
 
 
