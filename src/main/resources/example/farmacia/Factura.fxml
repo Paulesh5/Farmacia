@@ -55,12 +55,13 @@
             <TreeTableColumn fx:id="PVPColumna2" prefWidth="75.0" text="P.V.P" />
          </columns>
       </TreeTableView>
-      <Button fx:id="SeleccionarLabel" layoutX="638.0" layoutY="560.0" mnemonicParsing="false" onAction="#SeleccionarLabel" text="Seleccionar" />
+      <Button fx:id="SeleccionarButton" layoutX="619.0" layoutY="560.0" mnemonicParsing="false" onAction="#SeleccionarButton" text="Seleccionar" />
       <Button fx:id="EnviarButton" layoutX="253.0" layoutY="560.0" mnemonicParsing="false" onAction="#EnviarButton" prefHeight="25.0" prefWidth="68.0" text="Enviar" />
       <Button fx:id="CrearFacturaButton" layoutX="145.0" layoutY="560.0" mnemonicParsing="false" onAction="#CrearFacturaButton" prefHeight="25.0" prefWidth="88.0" text="Crear Factura" />
       <Button fx:id="SalirButton" layoutX="51.0" layoutY="560.0" mnemonicParsing="false" onAction="#SalirButton" prefHeight="25.0" prefWidth="61.0" text="Salir" />
       <Label fx:id="ValorTotalLabel" layoutX="354.0" layoutY="564.0" text="(VALOR Total)" />
       <Label layoutX="653.0" layoutY="81.0" text="Stock" />
       <Label fx:id="NumFacLabel" layoutX="168.0" layoutY="31.0" text="(NUMFAC)" />
+      <Button fx:id="CerrarSesiónButton" layoutX="713.0" layoutY="560.0" mnemonicParsing="false" onAction="#CerrarSesiónButton" text="Cerrar Sesión" />
    </children>
 </AnchorPane>
