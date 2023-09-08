@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.farmacia.menuPrincipalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEids1opaIM5ovupmuiquGrgHsa6pVf8o4yyc3PRR8MSBsMP5yBom-So7CPdGgxEgga0G7Mq2s8we1OfxfOpv-nqEx2ciWey8Uf98r9hNQyeWaVm4o1NZqu7Hbb9sBjnlVmEatTVU3AwXkJgjRQSGfgb-fYwzDK4hsDdKK0RZBnQ4blG5UM6LnlwVnQFJdGh/s961/fondo.jpg'); -fx-background-size: 600 500;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.farmacia.menuPrincipalController">
    <children>
-      <ImageView fitHeight="378.0" fitWidth="482.0" layoutX="79.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../java/example/farmacia/imagenes/WhatsApp%20Image%202023-08-29%20at%2009.51.30.jpeg" />
-         </image>
-      </ImageView>
-      <Button layoutX="260.0" layoutY="321.0" mnemonicParsing="false" onAction="#inicioBoton" prefWidth="100.0" text="INICIAR">
+      <Button layoutX="461.0" layoutY="178.0" mnemonicParsing="false" onAction="#inicioBoton" prefWidth="100.0" text="INICIAR" style="-fx-border-radius: 30%; -fx-background-color: #873773; -fx-text-fill: white; ">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
+      <Label layoutX="436.0" layoutY="96.0" prefHeight="55.0" prefWidth="150.0" text="BIENVENIDO" style="-fx-font-family: 'Bookman Old Style'; -fx-alignment:'center' ; -fx-font-size: 20px; -fx-text-fill: white">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

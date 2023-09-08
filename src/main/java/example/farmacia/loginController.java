@@ -56,7 +56,7 @@ public class loginController {
     private boolean validarCredenciales(String usuario, String pass, String rol) {
         final String DB_URL="jdbc:mysql://localhost/FARMACIA";
         final String USER = "root";
-        final String PASS = "Kamekameha1";
+        final String PASS = "root_bas3";
         final String QUERY= "SELECT * FROM " + rol.toUpperCase();
 
         try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASS)) {

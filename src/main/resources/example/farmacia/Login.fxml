@@ -8,13 +8,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="278.0" prefWidth="320.0" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.farmacia.loginController">
+<VBox alignment="CENTER" prefHeight="278.0" prefWidth="320.0" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.farmacia.loginController" style="-fx-background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEids1opaIM5ovupmuiquGrgHsa6pVf8o4yyc3PRR8MSBsMP5yBom-So7CPdGgxEgga0G7Mq2s8we1OfxfOpv-nqEx2ciWey8Uf98r9hNQyeWaVm4o1NZqu7Hbb9sBjnlVmEatTVU3AwXkJgjRQSGfgb-fYwzDK4hsDdKK0RZBnQ4blG5UM6LnlwVnQFJdGh/s961/fondo.jpg'); -fx-background-size: 320 320; -fx-text-fill: white;">
   <padding>
     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
   </padding>
-   <Label text="LOGIN" />
-    <ComboBox fx:id="usuarioComboBox" prefWidth="150.0" promptText="Usuario" />
-   <TextField fx:id="usuarioIngreso" promptText="Usuario" />
-   <PasswordField fx:id="contraIngreso" promptText="Contraseña" />
-   <Button mnemonicParsing="false" onAction="#inicioBoton" text="Iniciar Sesión" />
+   <Label text="LOGIN" style="-fx-text-fill: white; -fx-font-size: 40px; -fx-font-family: 'Bookman Old Style';"/>
+    <ComboBox fx:id="usuarioComboBox" prefWidth="150.0" promptText="Usuario" style="-fx-background-color: #D4A687; -fx-text-fill: white; -fx-font-family: 'Bookman Old Style';" />
+   <TextField fx:id="usuarioIngreso" promptText="Usuario" style="-fx-background-color: #D4A687; -fx-text-fill: black; -fx-prompt-text-fill: black;" />
+   <PasswordField fx:id="contraIngreso" promptText="Contraseña" style="-fx-background-color: #D4A687; -fx-text-fill: black; -fx-prompt-text-fill: black;" />
+   <Button mnemonicParsing="false" onAction="#inicioBoton" text="Iniciar Sesión" style="-fx-background-color: #D4A687;"/>
 </VBox>
