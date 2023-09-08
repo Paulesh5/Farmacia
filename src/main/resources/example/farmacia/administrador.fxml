@@ -9,226 +9,231 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainForm" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.farmacia.administradorController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.farmacia.administradorController" style="-fx-background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEids1opaIM5ovupmuiquGrgHsa6pVf8o4yyc3PRR8MSBsMP5yBom-So7CPdGgxEgga0G7Mq2s8we1OfxfOpv-nqEx2ciWey8Uf98r9hNQyeWaVm4o1NZqu7Hbb9sBjnlVmEatTVU3AwXkJgjRQSGfgb-fYwzDK4hsDdKK0RZBnQ4blG5UM6LnlwVnQFJdGh/s961/fondo.jpg'); -fx-background-size: 1120 600 ">
    <children>
-      <BorderPane layoutX="311.0" layoutY="87.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <AnchorPane prefHeight="45.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane layoutX="73.0" layoutY="-69.0" prefHeight="35.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="mainForm" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="311.0" layoutY="87.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="45.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label layoutX="47.0" layoutY="13.0" text="Sistema de administradores">
-                           <font>
-                              <Font name="Tahoma" size="15.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </top>
-         <left>
-            <AnchorPane prefHeight="555.0" prefWidth="211.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane fx:id="switchForm" prefHeight="555.0" prefWidth="211.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label layoutX="65.0" layoutY="117.0" text="Bienvenido">
-                           <font>
-                              <Font name="Tahoma" size="17.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="nombreAdmin" alignment="CENTER" layoutX="11.0" layoutY="138.0" prefHeight="25.0" prefWidth="190.0" text="Usuario">
-                           <font>
-                              <Font name="Tahoma Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Line endX="65.0" layoutX="124.0" layoutY="176.0" startX="-100.0" />
-                        <Button fx:id="homeBoton" layoutX="17.0" layoutY="204.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="Home" />
-                        <Button fx:id="usuariosBoton" layoutX="17.0" layoutY="239.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="Usuarios" />
-                        <Button fx:id="productosBoton" layoutX="17.0" layoutY="274.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="Productos" />
-                        <Button fx:id="ventasBoton" layoutX="17.0" layoutY="309.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="Ventas" />
-                        <Button layoutX="64.0" layoutY="507.0" mnemonicParsing="false" onAction="#cerrarSesionBoton" text="Cerrar Sesión" />
-                        <ImageView fitHeight="135.0" fitWidth="105.0" layoutX="55.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../java/example/farmacia/imagenes/icons8-gerente-96.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="34.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../java/example/farmacia/imagenes/icons8-farmacia-96.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="34.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../java/example/farmacia/imagenes/icons8-antecedentes-conferencia-seleccionada-96.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="34.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../java/example/farmacia/imagenes/icons8-píldora-96.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="34.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../java/example/farmacia/imagenes/icons8-mejoras-económicas-96.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="29.0" layoutY="504.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../java/example/farmacia/imagenes/icons8-salida-96.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </left>
-         <center>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane fx:id="homeForm" layoutX="121.0" layoutY="102.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <AnchorPane layoutX="14.0" layoutY="15.0" prefHeight="526.0" prefWidth="859.0">
+                        <AnchorPane layoutX="73.0" layoutY="-69.0" prefHeight="35.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane prefHeight="155.0" prefWidth="859.0" />
+                              <Label layoutX="47.0" layoutY="13.0" text="Sistema de administradores" style="-fx-text-fill: white;">
+                                 <font>
+                                    <Font name="Tahoma" size="15.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="usuarioForm" layoutX="118.0" layoutY="46.0" prefHeight="555.0" prefWidth="889.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               </top>
+               <left>
+                  <AnchorPane prefHeight="555.0" prefWidth="211.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="528.0" prefWidth="861.0">
+                        <AnchorPane fx:id="switchForm" prefHeight="555.0" prefWidth="211.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <TextField fx:id="passwordUsuarioIngreso" layoutX="109.0" layoutY="436.0" prefHeight="26.0" prefWidth="193.0" />
-                              <AnchorPane layoutX="4.0" layoutY="14.0" prefHeight="283.0" prefWidth="859.0">
+                              <Label layoutX="65.0" layoutY="117.0" text="Bienvenido" style="-fx-text-fill: white;">
+                                 <font>
+                                    <Font name="Tahoma" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="nombreAdmin" alignment="CENTER" layoutX="11.0" layoutY="138.0" prefHeight="25.0" prefWidth="190.0" text="Usuario" style="-fx-text-fill: white;">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="65.0" layoutX="124.0" layoutY="176.0" startX="-100.0" />
+                              <Button fx:id="homeBoton" layoutX="17.0" layoutY="204.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="Home" style="-fx-text-fill: white; -fx-background-color: #873773;" />
+                              <Button fx:id="usuariosBoton" layoutX="17.0" layoutY="239.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="Usuarios" style="-fx-text-fill: white; -fx-background-color: #873773;" />
+                              <Button fx:id="productosBoton" layoutX="17.0" layoutY="274.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="Productos" style="-fx-text-fill: white; -fx-background-color: #873773;" />
+                              <Button fx:id="ventasBoton" layoutX="17.0" layoutY="309.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="Ventas" style="-fx-text-fill: white; -fx-background-color: #873773;" />
+                              <Button layoutX="64.0" layoutY="507.0" mnemonicParsing="false" onAction="#cerrarSesionBoton" text="Cerrar Sesión" style="-fx-text-fill: white; -fx-background-color: #873773;" />
+                              <ImageView fitHeight="135.0" fitWidth="105.0" layoutX="55.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbe_zN3e0RBd4uOkr95oI8vJspeG7B5Y1UhNvw2HFabA1kDwmb_ZCqIordrCbAKdCxsJacBtX6K-2Qdm9lxDHG4CsveZ0qPe7jta0XNfXLSxNxMeKc6pu7VSjBqsqN-Yh8TDQgBxxGzUWo9wPsgfd7juo8AitGvyv0c0eKyBLKq4YsPxYcXtbJxqL28o5S/s96/icons8-gerente-96.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="34.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNi4o46-t_sBMJId6dGSDDy35nHzelSQ3cKs7tgM8VjE13CrltenoA-ck1GOAYs66WB_jRrql18nl8quhtURj4wECLvWUDmydy_a4L-diu9eRzmLCk97j7W0zmjeRv89g0d7ihqFAfJ2qbL35qBP14GP6hLGIJLiANkzvOze-x-QwOW3RIFy1ZVZINVNt1/s96/icons8-farmacia-96.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="34.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtkNaoTWQi5SjzY9F4G0hDmls4hmjIsmi1TdoRgzOHUmTZKPSB4hNWxhlkKg7psFS5KRsVOL7NFovqY_2rqMB3Cy_tsDq2krHWWWBsxKUljLpyG6hoVSHJBiPRSPZw91EyoqzB4ilmJe74VAGjIOBlC_ljwFpWq3Rnu0nuKEJJxJAalztrPMAA98Q-64hz/s96/icons8-antecedentes-conferencia-seleccionada-96.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="34.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCHJnaOOFo2wAfr8enosWSETj1mJoNVcR3c5T1_gXVlhAXIuD93ZdIKYYpuMVEX_gtfE5CfwYXxk8JKNS_wc7mM4_zMVVy3zIPc1GXyXmQAntVvUciHDLXF742jgxPRySZxqaOaZOz4_il09MjX3lsiOmMWnTscHO6l-JlYPNdH775Gz9VGSay2_yfRgQP/s96/icons8-p%C3%ADldora-96.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="34.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaGVpnpWg-bTeP-yy7vmVJ9DYPb6c3Euotjho4kGKTnSTJzdVpeClzVaE-0qQR0Kd-rCPJ7cYNw4D_Yue5sIxyGQ9dJEw2pchuVfF_T0GQ_GbkTMJPvRft7t1evB9XV_ex7y41TV2ZCbu98zNbrZv4e1sDa6ecOy_1ArsQDx-jAjG8VAimxfTb4JDecyTe/s96/icons8-mejoras-econ%C3%B3micas-96.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="29.0" layoutY="504.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhc6zWJtaysSwpa5rfhdiQz7VyaYZ0B_cp2qQ4_ycvj2j9WqL5KRVyCZ54KCjPlSFISbjE2VASeObz0Gx2oOoRo3Tiruq5Hf9aY7ia48c5NqdIq1yH5SmgEm9mrhgrcMINRfQy1U3_2EVnxLGeMjTlGfgR_qKFPMuGFLt5tHwDagcuMJ_MOxljpxpekSx8b/s96/icons8-salida-96.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="homeForm" layoutX="121.0" layoutY="102.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="15.0" prefHeight="526.0" prefWidth="859.0">
                                  <children>
-                                    <TableView fx:id="usuarioTabla" layoutX="10.0" layoutY="42.0" prefHeight="227.0" prefWidth="840.0">
-                                       <columns>
-                                          <TableColumn fx:id="usuarioColumnaTabla" prefWidth="110.0" text="Usuario" />
-                                          <TableColumn fx:id="nombreUsuarioColumnaTabla" prefWidth="110.0" text="Nombre" />
-                                          <TableColumn fx:id="apellidoUsuarioColumnaTabla" prefWidth="110.0" text="Apellido" />
-                                          <TableColumn fx:id="cedulaUsuarioColumnaTabla" prefWidth="140.0" text="Cédula" />
-                                          <TableColumn fx:id="edadUsuarioColumnaTabla" prefWidth="60.0" text="Edad" />
-                                          <TableColumn fx:id="correoUsuarioColumnaTabla" prefWidth="350.0" text="Correo electrónico" />
-                                       </columns>
-                                    </TableView>
-                                    <TextField fx:id="buscarUsuarioIngreso" layoutX="34.0" layoutY="10.0" prefHeight="30.0" prefWidth="277.0" promptText="Buscar" />
-                                    <Button layoutX="336.0" layoutY="8.0" mnemonicParsing="false" onAction="#buscarUsuarioBoton" prefHeight="35.0" prefWidth="94.0" text="Buscar" />
-                                    <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <AnchorPane prefHeight="155.0" prefWidth="859.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="usuarioForm" layoutX="118.0" layoutY="46.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="528.0" prefWidth="861.0">
+                                 <children>
+                                    <TextField fx:id="passwordUsuarioIngreso" layoutX="109.0" layoutY="436.0" prefHeight="26.0" prefWidth="193.0" />
+                                    <AnchorPane layoutX="4.0" layoutY="14.0" prefHeight="283.0" prefWidth="859.0">
+                                       <children>
+                                          <TableView fx:id="usuarioTabla" layoutX="10.0" layoutY="42.0" prefHeight="227.0" prefWidth="840.0">
+                                            <columns>
+                                              <TableColumn fx:id="usuarioColumnaTabla" prefWidth="110.0" text="Usuario"  />
+                                              <TableColumn fx:id="nombreUsuarioColumnaTabla" prefWidth="110.0" text="Nombre"  />
+                                                <TableColumn fx:id="apellidoUsuarioColumnaTabla" prefWidth="110.0" text="Apellido"  />
+                                                <TableColumn fx:id="cedulaUsuarioColumnaTabla" prefWidth="140.0" text="Cédula"  />
+                                                <TableColumn fx:id="edadUsuarioColumnaTabla" prefWidth="60.0" text="Edad"  />
+                                                <TableColumn fx:id="correoUsuarioColumnaTabla" prefWidth="350.0" text="Correo electrónico"  />
+                                            </columns>
+                                          </TableView>
+                                          <TextField fx:id="buscarUsuarioIngreso" layoutX="34.0" layoutY="10.0" prefHeight="30.0" prefWidth="277.0" promptText="Buscar" />
+                                          <Button layoutX="336.0" layoutY="8.0" mnemonicParsing="false" onAction="#buscarUsuarioBoton" prefHeight="35.0" prefWidth="94.0" text="Buscar" style="-fx-background-color: #873773; -fx-text-fill: white; -fx-padding: 2px;" />
+                                          <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqp8HMJbSbcn_l1EOCUsn0i3ZJteFC0UsIPb8EZB2NEZoDHslHj2b_ScHJs4egLiBGtzvFEdTeh3cqb9yoyA3K2BXVkZsIRCFJnmt6gFQCL8X8Tz5uOORK3lc969kPXkR--MQfOHkTfICbA50mGEAC3ci3x7JlgbWHoMCjgcWLMY1GjGlabBMZrxVydojJ/s96/icons8-lupa-96.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                                    <Label layoutX="24.0" layoutY="320.0" text="Usuario:" style="-fx-text-fill: white;">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="usuarioIngreso" layoutX="86.0" layoutY="317.0" prefHeight="26.0" prefWidth="172.0" />
+                                    <Label layoutX="23.0" layoutY="354.0" text="Nombre:" style="-fx-text-fill: white;">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="nombreUsuarioIngreso" layoutX="86.0" layoutY="350.0" prefHeight="26.0" prefWidth="172.0" />
+                                    <Label layoutX="23.0" layoutY="393.0" text="Apellido:" style="-fx-text-fill: white;">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="apellidoUsuarioIngreso" layoutX="86.0" layoutY="389.0" prefHeight="26.0" prefWidth="172.0" />
+                                    <Label layoutX="304.0" layoutY="321.0" text="Cédula:" style="-fx-text-fill: white;">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="cedulaUsuarioIngreso" layoutX="367.0" layoutY="317.0" prefHeight="26.0" prefWidth="172.0" />
+                                    <Label layoutX="304.0" layoutY="354.0" text="Edad:" style="-fx-text-fill: white;">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="edadUsuarioIngreso" layoutX="367.0" layoutY="350.0" prefHeight="26.0" prefWidth="172.0" />
+                                    <Label layoutX="304.0" layoutY="393.0" text="Corrreo electrónico:" style="-fx-text-fill: white;">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="correoUsuarioIngreso" layoutX="434.0" layoutY="389.0" prefHeight="26.0" prefWidth="230.0" />
+                                    <Button layoutX="737.0" layoutY="462.0" mnemonicParsing="false" onAction="#actualizarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Actualizar" style="-fx-text-fill: white; -fx-background-color: #873773;" />
+                                    <Button layoutX="632.0" layoutY="462.0" mnemonicParsing="false" onAction="#eliminarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Eliminar" style="-fx-text-fill: white; -fx-background-color: #873773;" />
+                                    <Button layoutX="527.0" layoutY="462.0" mnemonicParsing="false" onAction="#crearUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Crear" style="-fx-text-fill: white; -fx-background-color: #873773;" />
+                                    <Button layoutX="418.0" layoutY="462.0" mnemonicParsing="false" onAction="#limpiarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Limpiar" style="-fx-text-fill: white; -fx-background-color: #873773;" />
+                                    <Label layoutX="24.0" layoutY="440.0" text="Contraseña:" style="-fx-text-fill: white;">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="productosForm" layoutX="14.0" layoutY="14.0" prefHeight="555.0" prefWidth="889.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="17.0" layoutY="14.0" prefHeight="525.0" prefWidth="330.0">
+                                 <children>
+                                    <Label layoutX="60.0" layoutY="47.0" text="Código:" style="-fx-text-fill: white;" />
+                                    <TextField fx:id="codigoProductoIngreso" layoutX="111.0" layoutY="43.0" prefHeight="26.0" prefWidth="209.0" />
+                                    <Label layoutX="57.0" layoutY="88.0" text="Nombre:" style="-fx-text-fill: white;" />
+                                    <TextField fx:id="nombreProductoIngreso" layoutX="111.0" layoutY="83.0" prefHeight="26.0" prefWidth="208.0" />
+                                    <Label layoutX="63.0" layoutY="126.0" text="Precio:" style="-fx-text-fill: white;" />
+                                    <TextField fx:id="precioProductoIngreso" layoutX="111.0" layoutY="121.0" prefHeight="26.0" prefWidth="79.0" />
+                                    <Button layoutX="116.0" layoutY="275.0" mnemonicParsing="false" onAction="#buscarProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Buscar" style="-fx-background-color: #873773; -fx-text-fill: white;" />
+                                    <Button layoutX="116.0" layoutY="225.0" mnemonicParsing="false" onAction="#limpiarProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Limpiar" style="-fx-background-color: #873773; -fx-text-fill: white;" />
+                                    <Button layoutX="116.0" layoutY="378.0" mnemonicParsing="false" onAction="#actualizarProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Actualizar" style="-fx-background-color: #873773; -fx-text-fill: white;" />
+                                    <Button layoutX="116.0" layoutY="328.0" mnemonicParsing="false" onAction="#eliminarProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Eliminar" style="-fx-background-color: #873773; -fx-text-fill: white;" />
+                                    <Label layoutX="65.0" layoutY="167.0" text="Stock:" style="-fx-text-fill: white; " />
+                                    <TextField fx:id="stockProductoIngreso" layoutX="111.0" layoutY="162.0" prefHeight="26.0" prefWidth="79.0" />
+                                    <Button layoutX="116.0" layoutY="430.0" mnemonicParsing="false" onAction="#crearProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Crear" style="-fx-background-color: #873773; -fx-text-fill: white;" />
+                                    <ImageView fitHeight="29.0" fitWidth="31.0" layoutX="14.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../java/example/farmacia/imagenes/icons8-lupa-96.png" />
+                                          <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia5ObqJs0xEOjo6WJ4Iiz9HIsUEU6TNtolFhduyQ-5erpm-d9e73gFEgw3lQIY8kHmvH-3qr1xs14dl9siGazypgwFYxZunH20bX26M41Q3nd1lWpO7mr__aKHqewY-BmOrCydLlQs66EM7TGsSF1Msnx43hoQHrJB0JLwL_RwHPO8QBkvHsr7GhZCrzZE/s100/icons8-esc%C3%A1ner-de-c%C3%B3digo-de-barras.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="14.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNi4o46-t_sBMJId6dGSDDy35nHzelSQ3cKs7tgM8VjE13CrltenoA-ck1GOAYs66WB_jRrql18nl8quhtURj4wECLvWUDmydy_a4L-diu9eRzmLCk97j7W0zmjeRv89g0d7ihqFAfJ2qbL35qBP14GP6hLGIJLiANkzvOze-x-QwOW3RIFy1ZVZINVNt1/s96/icons8-farmacia-96.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="14.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiecx0UNAX-vUB7N_R8wDj9BL7UzzBQKg7x4N2993U6K7tfjHSpYl56gmMPoQoXut7vhGFGM1J-pAp1f2zzKNL16NXhDCA3zrIbEL3oGBNRt2YHCQEtmh4c5LlbAh1OCRJHC6RGJbq3Dh_ghrxs-elEGDH14hkvBWeZnaW-QMtuBJI6RppnNJSZnS2dkZ1Z/s90/icons8-dinero-90.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="14.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaxAPMRWjf5xpnlROW0Y2kTUjsNTqm3LHlvdfvDHtYNorkotcKZwpjsUCbmjFDx2Fm9GBHCMsMLGIYWJHT_Sh0tpovWR2rd-rpAKO__i0BMAdllkHsbr24XZGgHtJByrMJSrOPYFS1JUvE3Svz3cpiesIQzVqqKL46VVptTLiQ6JV_au33uYvHdrDc0kcm/s100/icons8-paquete-100.png" />
                                        </image>
                                     </ImageView>
                                  </children>
                               </AnchorPane>
-                              <Label layoutX="24.0" layoutY="320.0" text="Usuario:">
-                                 <font>
-                                    <Font name="Tahoma" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="usuarioIngreso" layoutX="86.0" layoutY="317.0" prefHeight="26.0" prefWidth="172.0" />
-                              <Label layoutX="23.0" layoutY="354.0" text="Nombre:">
-                                 <font>
-                                    <Font name="Tahoma" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="nombreUsuarioIngreso" layoutX="86.0" layoutY="350.0" prefHeight="26.0" prefWidth="172.0" />
-                              <Label layoutX="23.0" layoutY="393.0" text="Apellido:">
-                                 <font>
-                                    <Font name="Tahoma" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="apellidoUsuarioIngreso" layoutX="86.0" layoutY="389.0" prefHeight="26.0" prefWidth="172.0" />
-                              <Label layoutX="304.0" layoutY="321.0" text="Cédula:">
-                                 <font>
-                                    <Font name="Tahoma" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="cedulaUsuarioIngreso" layoutX="367.0" layoutY="317.0" prefHeight="26.0" prefWidth="172.0" />
-                              <Label layoutX="304.0" layoutY="354.0" text="Edad:">
-                                 <font>
-                                    <Font name="Tahoma" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="edadUsuarioIngreso" layoutX="367.0" layoutY="350.0" prefHeight="26.0" prefWidth="172.0" />
-                              <Label layoutX="304.0" layoutY="393.0" text="Corrreo electrónico:">
-                                 <font>
-                                    <Font name="Tahoma" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="correoUsuarioIngreso" layoutX="434.0" layoutY="389.0" prefHeight="26.0" prefWidth="230.0" />
-                              <Button layoutX="737.0" layoutY="462.0" mnemonicParsing="false" onAction="#actualizarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Actualizar" />
-                              <Button layoutX="632.0" layoutY="462.0" mnemonicParsing="false" onAction="#eliminarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Eliminar" />
-                              <Button layoutX="527.0" layoutY="462.0" mnemonicParsing="false" onAction="#crearUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Crear" />
-                              <Button layoutX="418.0" layoutY="462.0" mnemonicParsing="false" onAction="#limpiarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Limpiar" />
-                              <Label layoutX="24.0" layoutY="440.0" text="Contraseña:">
-                                 <font>
-                                    <Font name="Tahoma" size="14.0" />
-                                 </font>
-                              </Label>
+                              <AnchorPane layoutX="354.0" layoutY="15.0" prefHeight="525.0" prefWidth="521.0">
+                                 <children>
+                                    <TableView fx:id="productosTabla" layoutX="11.0" layoutY="12.0" prefHeight="501.0" prefWidth="500.0">
+                                      <columns>
+                                        <TableColumn fx:id="codigoProductoColumnaTabla" prefWidth="150.0" text="Código" />
+                                        <TableColumn fx:id="nombreProductoColumnaTabla" prefWidth="150.0" text="Nombre" />
+                                          <TableColumn fx:id="precioProductoColumnaTabla" prefWidth="100.0" text="Precio" />
+                                          <TableColumn fx:id="stockProductoColumnaTabla" prefWidth="100.0" text="Stock" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="productosForm" layoutX="14.0" layoutY="14.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <AnchorPane layoutX="17.0" layoutY="14.0" prefHeight="525.0" prefWidth="330.0">
-                           <children>
-                              <Label layoutX="60.0" layoutY="47.0" text="Código:" />
-                              <TextField fx:id="codigoProductoIngreso" layoutX="111.0" layoutY="43.0" prefHeight="26.0" prefWidth="209.0" />
-                              <Label layoutX="57.0" layoutY="88.0" text="Nombre:" />
-                              <TextField fx:id="nombreProductoIngreso" layoutX="111.0" layoutY="83.0" prefHeight="26.0" prefWidth="208.0" />
-                              <Label layoutX="63.0" layoutY="126.0" text="Precio:" />
-                              <TextField fx:id="precioProductoIngreso" layoutX="111.0" layoutY="121.0" prefHeight="26.0" prefWidth="79.0" />
-                              <Button layoutX="116.0" layoutY="275.0" mnemonicParsing="false" onAction="#buscarProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Buscar" />
-                              <Button layoutX="116.0" layoutY="225.0" mnemonicParsing="false" onAction="#limpiarProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Limpiar" />
-                              <Button layoutX="116.0" layoutY="378.0" mnemonicParsing="false" onAction="#actualizarProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Actualizar" />
-                              <Button layoutX="116.0" layoutY="328.0" mnemonicParsing="false" onAction="#eliminarProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Eliminar" />
-                              <Label layoutX="65.0" layoutY="167.0" text="Stock:" />
-                              <TextField fx:id="stockProductoIngreso" layoutX="111.0" layoutY="162.0" prefHeight="26.0" prefWidth="79.0" />
-                              <Button layoutX="116.0" layoutY="430.0" mnemonicParsing="false" onAction="#crearProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Crear" />
-                              <ImageView fitHeight="29.0" fitWidth="31.0" layoutX="14.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../java/example/farmacia/imagenes/icons8-escáner-de-código-de-barras.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="14.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../java/example/farmacia/imagenes/icons8-píldora-96.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="14.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../java/example/farmacia/imagenes/icons8-dinero-90.png" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="31.0" fitWidth="30.0" layoutX="14.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../java/example/farmacia/imagenes/icons8-paquete-100.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="354.0" layoutY="15.0" prefHeight="525.0" prefWidth="521.0">
-                           <children>
-                              <TableView fx:id="productosTabla" layoutX="11.0" layoutY="12.0" prefHeight="501.0" prefWidth="500.0">
-                                 <columns>
-                                    <TableColumn fx:id="codigoProductoColumnaTabla" prefWidth="150.0" text="Código" />
-                                    <TableColumn fx:id="nombreProductoColumnaTabla" prefWidth="150.0" text="Nombre" />
-                                    <TableColumn fx:id="precioProductoColumnaTabla" prefWidth="100.0" text="Precio" />
-                                    <TableColumn fx:id="stockProductoColumnaTabla" prefWidth="100.0" text="Stock" />
-                                 </columns>
-                              </TableView>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </center>
-      </BorderPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</StackPane>
