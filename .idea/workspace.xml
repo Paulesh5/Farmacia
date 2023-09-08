@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Panel Factura">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/cajeroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/cajeroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/Factura.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/cajero.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/cajero.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
