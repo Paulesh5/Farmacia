@@ -7,11 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableView;
 
 public class cajeroController {
-
-    @FXML
-    private Button AgregarProductosButton;
 
     @FXML
     private Button BuscarporCodigoButton;
@@ -50,13 +48,7 @@ public class cajeroController {
     private TextField EmailRespuesta;
 
     @FXML
-    private Button EnviarButton;
-
-    @FXML
     private Label FechaLabel;
-
-    @FXML
-    private Label IDLabel;
 
     @FXML
     private Button LimpiarConsultaButton;
@@ -71,28 +63,13 @@ public class cajeroController {
     private TreeTableColumn<?, ?> PVPColumna1;
 
     @FXML
-    private TreeTableColumn<?, ?> PVPColumna2;
-
-    @FXML
     private TreeTableColumn<?, ?> ProductoColumna1;
-
-    @FXML
-    private TreeTableColumn<?, ?> ProductoColumna2;
 
     @FXML
     private TextField ProductoRespuesta;
 
     @FXML
-    private Button SalirButton;
-
-    @FXML
     private Button SeleccionarButton;
-
-    @FXML
-    private TreeTableColumn<?, ?> StockColumna2;
-
-    @FXML
-    private Spinner<?> StockSpinner;
 
     @FXML
     private TreeTableColumn<?, ?> SubstotalColumna1;
@@ -101,9 +78,22 @@ public class cajeroController {
     private Label ValorTotalLabel;
 
     @FXML
-    void AgregarProductosButton(ActionEvent event) {
+    private Spinner<?> num_stock;
 
-    }
+    @FXML
+    private TreeTableView<?> vista_fac;
+
+    @FXML
+    private TreeTableView<?> vista_prev;
+
+    @FXML
+    private TreeTableColumn<?, ?> vista_prod;
+
+    @FXML
+    private TreeTableColumn<?, ?> vista_pvp;
+
+    @FXML
+    private TreeTableColumn<?, ?> vista_stock;
 
     @FXML
     void BuscarporCodigoButton(ActionEvent event) {
@@ -131,17 +121,7 @@ public class cajeroController {
     }
 
     @FXML
-    void EnviarButton(ActionEvent event) {
-
-    }
-
-    @FXML
     void LimpiarConsultaButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void SalirButton(ActionEvent event) {
 
     }
 
