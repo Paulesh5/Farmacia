@@ -385,5 +385,4 @@ public class cajeroController extends administradorController{
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-
 }
