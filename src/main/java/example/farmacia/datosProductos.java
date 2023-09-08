@@ -1,12 +1,11 @@
 package example.farmacia;
-
 public class datosProductos {
-    private Integer codigo;
-    private String nombre;
-    private float precio;
-    private Integer stock;
+    public Integer codigo;
+    public String nombre;
+    public double precio;
+    public Integer stock;
 
-    public datosProductos(Integer codigo, String nombre, float precio, Integer stock) {
+    public datosProductos(Integer codigo, String nombre, double precio, Integer stock) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
@@ -21,7 +20,7 @@ public class datosProductos {
         return nombre;
     }
 
-    public float getPrecio() {
+    public double getPrecio() { // Cambiado a double
         return precio;
     }
 
