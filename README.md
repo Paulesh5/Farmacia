@@ -1,4 +1,5 @@
 
+
 Primero partiremos con la creación de la Base de Datos y Tablas en MySQL
 
 Creación de la Base de Datos
@@ -87,6 +88,13 @@ Automaticamente nos enseñará esta ventana:
 
 y Mediiante esas credenciales podrás iniciar sesión desde cajero.
 
+![image](https://github.com/Paulesh5/Farmacia/assets/139184732/6b264c93-36c4-4635-9cc9-cef5317b9488)
+
+Una vez que iniciemos sesión desde cajero, nosotros podremos observar la interfaz con la cual nosotros haremos registros o modificaciones
+
+![image](https://github.com/Paulesh5/Farmacia/assets/139184732/265a0cc8-b0dc-49b0-9160-99fc3a428698)
+
+En este panel contaremos con dos recuadros, pero el derecho unicamente es la vista previa de los productos disponibles y la izquierda va toda la informacion catalogada por campos como Cod Prod, Producto, Cantidad, P.V.P, Subtotal. Debido a que esta sera la información de lo que irá en los detalles de la factura
 
 
 
