@@ -5,9 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
 
 public class cajeroController {
 
@@ -24,7 +23,7 @@ public class cajeroController {
     private Label CajeroLabel;
 
     @FXML
-    private TreeTableColumn<?, ?> CantidadColumna1;
+    private TableColumn<?, ?> CantidadColumnaCuadro1;
 
     @FXML
     private TextField CelTelRespuesta;
@@ -33,7 +32,7 @@ public class cajeroController {
     private Button CerrarSesiónButton;
 
     @FXML
-    private TreeTableColumn<?, ?> CodProdColumna1;
+    private TableColumn<?, ?> CodigoProductoColumnaCuadro1;
 
     @FXML
     private TextField CodigodeProductoRespuesta;
@@ -60,10 +59,13 @@ public class cajeroController {
     private Label NumFacLabel;
 
     @FXML
-    private TreeTableColumn<?, ?> PVPColumna1;
+    private TableColumn<?, ?> PVPColumnaCuadro1;
 
     @FXML
-    private TreeTableColumn<?, ?> ProductoColumna1;
+    private TableColumn<?, ?> ProductoColumnaCuadro1;
+
+    @FXML
+    private TableColumn<?, ?> ProductoColumnaCuadro2;
 
     @FXML
     private TextField ProductoRespuesta;
@@ -72,28 +74,16 @@ public class cajeroController {
     private Button SeleccionarButton;
 
     @FXML
-    private TreeTableColumn<?, ?> SubstotalColumna1;
+    private TableColumn<?, ?> StockColumnaCuadro2;
+
+    @FXML
+    private TableColumn<?, ?> SubstotalColumnaCuadro1;
 
     @FXML
     private Label ValorTotalLabel;
 
     @FXML
     private Spinner<?> num_stock;
-
-    @FXML
-    private TreeTableView<?> vista_fac;
-
-    @FXML
-    private TreeTableView<?> vista_prev;
-
-    @FXML
-    private TreeTableColumn<?, ?> vista_prod;
-
-    @FXML
-    private TreeTableColumn<?, ?> vista_pvp;
-
-    @FXML
-    private TreeTableColumn<?, ?> vista_stock;
 
     @FXML
     void BuscarporCodigoButton(ActionEvent event) {
