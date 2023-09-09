@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Panel Factura">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/cajero.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/cajero.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Panel Factura" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694108186538</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="variables cajero">
+      <created>1694222295792</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1694222295792</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +229,8 @@
     <MESSAGE value="Correccion imagenes 4" />
     <MESSAGE value="Correccion imagenes 5" />
     <MESSAGE value="Panel Factura" />
-    <option name="LAST_COMMIT_MESSAGE" value="Panel Factura" />
+    <MESSAGE value="variables cajero" />
+    <option name="LAST_COMMIT_MESSAGE" value="variables cajero" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
