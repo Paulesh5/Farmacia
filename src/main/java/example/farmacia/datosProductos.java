@@ -27,4 +27,6 @@ public class datosProductos {
     public Integer getStock() {
         return stock;
     }
+
 }
+

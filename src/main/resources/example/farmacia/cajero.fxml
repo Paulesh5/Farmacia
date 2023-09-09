@@ -47,7 +47,7 @@
       <Label fx:id="NumFacLabel" layoutX="168.0" layoutY="31.0" style="-fx-text-fill: white;" text="(NUMFAC)" />
       <Button fx:id="CerrarSesiónButton" layoutX="713.0" layoutY="560.0" mnemonicParsing="false" onAction="#CerrarSesiónButton" style="-fx-text-fill: white; -fx-background-color: #873773;" text="Cerrar Sesión" />
       <ImageView fitHeight="56.0" fitWidth="68.0" layoutX="29.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
-      <TableView layoutX="68.0" layoutY="323.0" prefHeight="200.0" prefWidth="388.0">
+      <TableView fx:id="vista_fac" layoutX="68.0" layoutY="323.0" prefHeight="200.0" prefWidth="388.0">
         <columns>
           <TableColumn fx:id="CodigoProductoColumnaCuadro1" prefWidth="103.0" text="Codigo Producto" />
           <TableColumn fx:id="ProductoColumnaCuadro1" prefWidth="65.0" text="Producto" />
@@ -56,11 +56,11 @@
             <TableColumn fx:id="SubstotalColumnaCuadro1" prefWidth="75.0" text="Substotal" />
         </columns>
       </TableView>
-      <TableView layoutX="522.0" layoutY="331.0" prefHeight="200.0" prefWidth="222.0">
+      <TableView fx:id="vista_prod" layoutX="522.0" layoutY="331.0" prefHeight="200.0" prefWidth="222.0">
         <columns>
           <TableColumn fx:id="ProductoColumnaCuadro2" prefWidth="75.0" text="Producto" />
           <TableColumn fx:id="StockColumnaCuadro2" prefWidth="75.0" text="Stock" />
-            <TableColumn prefWidth="75.0" text="P.VP" />
+            <TableColumn fx:id="PVPColumnaCuadro2" prefWidth="75.0" text="P.VP" />
         </columns>
       </TableView>
       <Label layoutX="318.0" layoutY="144.0" prefHeight="37.0" prefWidth="118.0" style="-fx-text-fill: white;" text="Código de producto" textAlignment="CENTER" />
