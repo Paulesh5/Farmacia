@@ -21,6 +21,9 @@ public class datosUsuarios {
         this.password = password;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
     public String getUsuario() {
         return usuario;
     }

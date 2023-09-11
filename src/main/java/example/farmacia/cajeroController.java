@@ -8,11 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -28,7 +27,7 @@ import org.bouncycastle.operator.bc.BcSignerOutputStream;
 
 
 
-public class cajeroController {
+public class cajeroController extends loginController{
 
     @FXML
     private Button BuscarporCodigoButton;
@@ -122,9 +121,70 @@ public class cajeroController {
     private double iva;
     private double total;
     private ArrayList<Productofactura> actualizar = new ArrayList<>();
+    @FXML
+    public void initialize() {
+        String nombreUsuario = AppData.nombreUsuario;
+        datosUsuarios cajero = obtenerCajeroDesdeBD(nombreUsuario);
 
+        int numeroFactura = obtenerNumeroFacturaSecuencial();
 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaActual = sdf.format(new Date());
 
+        CajeroLabel.setText(cajero.getNombre());
+        NumFacLabel.setText("" + numeroFactura);
+        FechaLabel.setText(fechaActual);
+    }
+
+    private datosUsuarios obtenerCajeroDesdeBD(String nombreCajero) {
+        datosUsuarios cajero = null;
+
+        String sql = "SELECT * FROM CAJERO WHERE Usuario = ?";
+
+        try (Connection connection = database.connectDb();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setString(1, nombreCajero);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    String usuario = resultSet.getString("Usuario");
+                    String nombre = resultSet.getString("Nombre");
+                    String apellido = resultSet.getString("Apellido");
+                    String cedula = resultSet.getString("Cedula");
+                    Integer edad = resultSet.getInt("Edad");
+                    String correo = resultSet.getString("Correo");
+                    String password = resultSet.getString("Password");
+
+                    cajero = new datosUsuarios(usuario, nombre, apellido, cedula, edad, correo, password);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            mostrarMensajeError("Error al obtener los datos del cajero desde la base de datos.");
+        }
+
+        return cajero;
+    }
+
+    private int obtenerNumeroFacturaSecuencial() {
+        int numeroFactura = 0;
+
+        try (Connection connection = database.connectDb();
+             Statement statement = connection.createStatement()) {
+
+            ResultSet resultSet = statement.executeQuery("SELECT MAX(id) FROM Facturas");
+
+            if (resultSet.next()) {
+                numeroFactura = resultSet.getInt(1) + 1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            mostrarMensajeError("Error al obtener el número de factura secuencial desde la base de datos.");
+        }
+
+        return numeroFactura;
+    }
     @FXML
     void BuscarporCodigoButton(ActionEvent event) {
         String codigoProducto = CodigodeProductoRespuesta.getText();
