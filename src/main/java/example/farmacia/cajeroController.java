@@ -6,26 +6,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.collections.ObservableList;
-import javafx.collections.FXCollections;
+
+import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import java.io.File;
-import java.io.IOException;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.bouncycastle.operator.bc.BcSignerOutputStream;
 
 
 
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 public class cajeroController {
 
     @FXML
@@ -90,25 +92,37 @@ public class cajeroController {
     private Label ValorTotalLabel;
 
     @FXML
-    private Spinner<datosProductos> num_stock;
+    private TextField Cantidad;
 
     @FXML
-    private TableView<datosProductos> vista_fac;
+    private TableView<Productofactura> vista_fac;
 
     @FXML
     private TableView<datosProductos> vista_prod;
 
     @FXML
-    private TableColumn<datosProductos, String> ProductoColumnaCuadro2;
+    private TableColumn<Productofactura, String> ProductoColumnaCuadro2;
 
     @FXML
-    private TableColumn<datosProductos, Integer> StockColumnaCuadro2;
+    private TableColumn<Productofactura, Integer> StockColumnaCuadro2;
 
     @FXML
-    private TableColumn<datosProductos, Float> PVPColumnaCuadro2;
+    private TableColumn<Productofactura, Float> PVPColumnaCuadro2;
 
     @FXML
-    private TableColumn<datosProductos, Float> SubstotalColumnaCuadro1;
+    private TableColumn<Productofactura, Float> SubstotalColumnaCuadro1;
+
+    @FXML
+    private Label SubtotalC;
+    @FXML
+    private Label IVAC;
+    @FXML
+    private Button CalcularBT;
+    private float subtotalF = 0;
+    private double iva;
+    private double total;
+    private ArrayList<Productofactura> actualizar = new ArrayList<>();
+
 
 
     @FXML
@@ -217,58 +231,80 @@ public class cajeroController {
     }
 
     @FXML
-    void CrearFacturaButton(ActionEvent event) {
+    void CrearFacturaButton(ActionEvent event) throws IOException {
+        //ARRAY CON LOS DATOS DE CADA PRODUCTO
+        for(Productofactura act : actualizar){
+            System.out.println(act.getCodigo());
+            System.out.println(act.getNombre());
+            System.out.println(act.getStock());
+            System.out.println(act.getPrecio());
+            System.out.println(act.getSubtotal());
+        }
+        //CREACION DEL PDF
+        try(PDDocument document = new PDDocument()){
+            PDPage page = new PDPage(PDRectangle.A4);
+            document.addPage(page);
+            PDPageContentStream contentStream = new PDPageContentStream(document,page);
+            contentStream.beginText();
+            //contentStream.setFont(PDType1Font.TIMES_BOLD,32);
 
+        }
     }
 
     @FXML
     void EliminarProductosButton(ActionEvent event) {
 
-        //datosProductos productoSeleccionado = vista_fac.getSelectionModel().getSelectedItem();
+        Productofactura productoSeleccionado = vista_fac.getSelectionModel().getSelectedItem();
 
-      //  if (productoSeleccionado != null) {
-
-      //      int cantidadEnFactura = productoSeleccionado.getStock();
-
-
-
-
-    //        vista_fac.getItems().remove(productoSeleccionado);
-
-
+        if (productoSeleccionado != null) {
+            int cantidadEnFactura = productoSeleccionado.getStock();
+            vista_fac.getItems().remove(productoSeleccionado);
+            actualizar.remove(productoSeleccionado);
     //        actualizarStockEnBaseDeDatos(productoSeleccionado, cantidadEnFactura);
-    //    } else {
-    //        mostrarMensajeError("Por favor, seleccione un producto de la factura para eliminar.");
-   //     }
+       } else {
+           mostrarMensajeError("Por favor, seleccione un producto de la factura para eliminar.");
+       }
     }
 
 
     @FXML
     void LimpiarConsultaButton(ActionEvent event) {
-        num_stock.getValueFactory().setValue(null);
         ProductoRespuesta.clear();
         CodigodeProductoRespuesta.clear();
+        Cantidad.clear();
+        vista_prod.getItems().clear();
+        subtotalF =0;
     }
 
     @FXML
     void SeleccionarButton(ActionEvent event) {
         datosProductos productoSeleccionado = vista_prod.getSelectionModel().getSelectedItem();
-
-        if (productoSeleccionado != null) {
-            agregarProductoAFactura(productoSeleccionado);
-            actualizarStockEnBaseDeDatos(productoSeleccionado);
-        } else {
-            mostrarMensajeError("Por favor, seleccione un producto de la lista.");
+        if(Integer.valueOf(Cantidad.getText()) >= productoSeleccionado.getStock()){
+            mostrarMensajeError("La cantidad ingresara supera el Stock actual");
+        }else{
+            if (productoSeleccionado != null) {
+                agregarProductoAFactura(productoSeleccionado);
+                //actualizarStockEnBaseDeDatos(productoSeleccionado);//Se ejecuta esta funcion despues de crear la factura
+            } else {
+                mostrarMensajeError("Por favor, seleccione un producto de la lista.");
+            }
         }
+
+
     }
 
     private void agregarProductoAFactura(datosProductos producto) {
-        vista_fac.getItems().add(producto);
+        int cantidadP = Integer.parseInt(Cantidad.getText());
+        float precioP = (float) producto.getPrecio();
+        float Subtotal = cantidadP * precioP;
+        Productofactura productof = new Productofactura(producto.getCodigo(), producto.getNombre(), producto.getPrecio(), cantidadP, Subtotal );
+        vista_fac.getItems().add(productof);
         ProductoColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         CodigoProductoColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("codigo"));
         CantidadColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("stock")); // Se actualiza el stock en la tabla
         PVPColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("precio"));
-        SubstotalColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        SubstotalColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("subtotal"));
+        actualizar.add(productof);
     }
 
     private void actualizarStockEnBaseDeDatos(datosProductos producto) {
@@ -292,6 +328,17 @@ public class cajeroController {
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
+    }
+    @FXML
+    void CalcularBT (ActionEvent event){
+        for(Productofactura act: actualizar){
+            subtotalF = subtotalF + act.getSubtotal();
+        }
+        iva = subtotalF * 0.12;
+        total = iva + subtotalF;
+        IVAC.setText(String.valueOf(iva));
+        SubtotalC.setText(String.valueOf(subtotalF));
+        ValorTotalLabel.setText(String.valueOf(total));
     }
 
 }
