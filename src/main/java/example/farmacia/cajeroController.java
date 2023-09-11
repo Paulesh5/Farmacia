@@ -12,6 +12,7 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -22,8 +23,6 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.bouncycastle.operator.bc.BcSignerOutputStream;
 
 
 
@@ -290,25 +289,63 @@ public class cajeroController extends loginController{
         }catch(Exception e){e.printStackTrace();}
     }
 
-    @FXML
-    void CrearFacturaButton(ActionEvent event) throws IOException {
-        //ARRAY CON LOS DATOS DE CADA PRODUCTO
-        for(Productofactura act : actualizar){
-            System.out.println(act.getCodigo());
-            System.out.println(act.getNombre());
-            System.out.println(act.getStock());
-            System.out.println(act.getPrecio());
-            System.out.println(act.getSubtotal());
-        }
-        //CREACION DEL PDF
-        try(PDDocument document = new PDDocument()){
+    public void generarFacturaPDF(List<Productofactura> productos, String nombreCajero,
+                                  String nombreCliente, String correoCliente, String celularCliente,
+                                  String rucCliente, String nombreArchivo) throws IOException {
+        try (PDDocument document = new PDDocument()) {
             PDPage page = new PDPage(PDRectangle.A4);
             document.addPage(page);
-            PDPageContentStream contentStream = new PDPageContentStream(document,page);
-            contentStream.beginText();
-            //contentStream.setFont(PDType1Font.TIMES_BOLD,32);
 
+            try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
+                contentStream.beginText();
+                contentStream.newLineAtOffset(100, 700);
+
+
+                contentStream.showText("Factura");
+                contentStream.newLine();
+                contentStream.showText("Cajero: " + nombreCajero);
+                contentStream.newLine();
+                contentStream.showText("Cliente: " + nombreCliente);
+                contentStream.newLine();
+                contentStream.showText("Correo: " + correoCliente);
+                contentStream.newLine();
+                contentStream.showText("Celular: " + celularCliente);
+                contentStream.newLine();
+                contentStream.showText("RUC: " + rucCliente);
+                contentStream.newLine();
+                contentStream.newLine();
+
+
+                for (Productofactura producto : productos) {
+                    contentStream.showText("Producto: " + producto.getNombre());
+                    contentStream.newLine();
+                    contentStream.showText("Precio: " + producto.getPrecio());
+                    contentStream.newLine();
+                    contentStream.showText("Cantidad: " + producto.getStock());
+                    contentStream.newLine();
+                    contentStream.showText("Subtotal: " + producto.getSubtotal());
+                    contentStream.newLine();
+                    contentStream.newLine();
+                }
+
+                contentStream.endText();
+            }
+
+            // Guardar el documento PDF
+            document.save(nombreArchivo + ".pdf");
         }
+    }
+    @FXML
+    void CrearFacturaButton(ActionEvent event) throws IOException {
+        String nombreCajero = CajeroLabel.getText();
+        String nombreCliente = NombreRespuesta.getText();
+        String correoCliente = EmailRespuesta.getText();
+        String celularCliente = CelTelRespuesta.getText();
+        String rucCliente = CIRUCRespuesta.getText();
+        String nombreArchivo = "factura";
+
+        cajeroController pdfGenerator = new cajeroController();
+        pdfGenerator.generarFacturaPDF(actualizar, nombreCajero, nombreCliente, correoCliente, celularCliente, rucCliente, nombreArchivo);
     }
 
     @FXML
@@ -320,7 +357,7 @@ public class cajeroController extends loginController{
             int cantidadEnFactura = productoSeleccionado.getStock();
             vista_fac.getItems().remove(productoSeleccionado);
             actualizar.remove(productoSeleccionado);
-    //        actualizarStockEnBaseDeDatos(productoSeleccionado, cantidadEnFactura);
+
        } else {
            mostrarMensajeError("Por favor, seleccione un producto de la factura para eliminar.");
        }
@@ -368,7 +405,7 @@ public class cajeroController extends loginController{
     }
 
     private void actualizarStockEnBaseDeDatos(datosProductos producto) {
-        int nuevoStock = producto.getStock() - 1; // Resta 1 al stock actual del producto
+        int nuevoStock = producto.getStock() - 1;
         String sql = "UPDATE PRODUCTOS SET stock = ? WHERE codigo = ?";
 
         try (Connection connection = database.connectDb();
