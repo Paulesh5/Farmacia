@@ -49,9 +49,9 @@
         <columns>
           <TableColumn fx:id="CodigoProductoColumnaCuadro1" prefWidth="103.0" text="Codigo Producto" />
           <TableColumn fx:id="ProductoColumnaCuadro1" prefWidth="65.0" text="Producto" />
-            <TableColumn fx:id="CantidadColumnaCuadro1" prefWidth="57.0" text="Cantidad" />
+            <TableColumn fx:id="CantidadColumnaCuadro1" prefWidth="65.0" text="Cantidad" />
             <TableColumn fx:id="PVPColumnaCuadro1" prefWidth="75.0" text="P.V.P" />
-            <TableColumn fx:id="SubstotalColumnaCuadro1" prefWidth="75.0" text="Substotal" />
+            <TableColumn fx:id="SubstotalColumnaCuadro1" prefWidth="77.0" text="Subtotal" />
         </columns>
       </TableView>
       <TableView fx:id="vista_prod" layoutX="493.0" layoutY="235.0" prefHeight="200.0" prefWidth="284.0">
@@ -67,6 +67,6 @@
       <Label fx:id="IVAC" layoutX="328.0" layoutY="477.0" prefHeight="17.0" prefWidth="74.0" text="IVAC" textFill="WHITE" />
       <Label layoutX="272.0" layoutY="452.0" text="Subtotal" textFill="WHITE" />
       <Label fx:id="SubtotalC" layoutX="327.0" layoutY="452.0" prefHeight="17.0" prefWidth="85.0" text="SubtotalC" textFill="WHITE" />
-      <Button fx:id="CalcularBT" layoutX="284.0" layoutY="535.0" mnemonicParsing="false" text="Calcular Total" onAction="#CalcularBT" style="-fx-background-color:#873773; -fx-text-fill: white;" />
+      <Button fx:id="CalcularBT" layoutX="284.0" layoutY="535.0" mnemonicParsing="false" onAction="#CalcularBT" style="-fx-background-color:#873773; -fx-text-fill: white;" text="Calcular Total" />
    </children>
 </AnchorPane>

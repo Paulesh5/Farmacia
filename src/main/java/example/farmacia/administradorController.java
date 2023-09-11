@@ -237,6 +237,7 @@ public class administradorController {
     }
     public void switchForm(ActionEvent event){
         if (event.getSource() == homeBoton){
+            displayNombreAdmin();
             homeForm.setVisible(true);
             usuarioForm.setVisible(false);
             productosForm.setVisible(false);

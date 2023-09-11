@@ -122,7 +122,7 @@ public class cajeroController extends loginController{
     private ArrayList<Productofactura> actualizar = new ArrayList<>();
     @FXML
     public void initialize() {
-        String nombreUsuario = AppData.nombreUsuario;
+        String nombreUsuario = getData.nombreUsuario;
         datosUsuarios cajero = obtenerCajeroDesdeBD(nombreUsuario);
 
         int numeroFactura = obtenerNumeroFacturaSecuencial();

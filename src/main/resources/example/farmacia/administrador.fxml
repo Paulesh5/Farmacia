@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.farmacia.administradorController" style="-fx-background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEids1opaIM5ovupmuiquGrgHsa6pVf8o4yyc3PRR8MSBsMP5yBom-So7CPdGgxEgga0G7Mq2s8we1OfxfOpv-nqEx2ciWey8Uf98r9hNQyeWaVm4o1NZqu7Hbb9sBjnlVmEatTVU3AwXkJgjRQSGfgb-fYwzDK4hsDdKK0RZBnQ4blG5UM6LnlwVnQFJdGh/s961/fondo.jpg'); -fx-background-size: 1120 600 ">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" style="-fx-background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEids1opaIM5ovupmuiquGrgHsa6pVf8o4yyc3PRR8MSBsMP5yBom-So7CPdGgxEgga0G7Mq2s8we1OfxfOpv-nqEx2ciWey8Uf98r9hNQyeWaVm4o1NZqu7Hbb9sBjnlVmEatTVU3AwXkJgjRQSGfgb-fYwzDK4hsDdKK0RZBnQ4blG5UM6LnlwVnQFJdGh/s961/fondo.jpg'); -fx-background-size: 1120 600 " xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.farmacia.administradorController">
    <children>
       <AnchorPane fx:id="mainForm" prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -23,7 +23,7 @@
                      <children>
                         <AnchorPane layoutX="73.0" layoutY="-69.0" prefHeight="35.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label layoutX="47.0" layoutY="13.0" text="Sistema de administradores" style="-fx-text-fill: white;">
+                              <Label layoutX="47.0" layoutY="13.0" style="-fx-text-fill: white;" text="Sistema de administradores">
                                  <font>
                                     <Font name="Tahoma" size="15.0" />
                                  </font>
@@ -38,22 +38,22 @@
                      <children>
                         <AnchorPane fx:id="switchForm" prefHeight="555.0" prefWidth="211.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label layoutX="65.0" layoutY="117.0" text="Bienvenido" style="-fx-text-fill: white;">
+                              <Label layoutX="65.0" layoutY="117.0" style="-fx-text-fill: white;" text="Bienvenido">
                                  <font>
                                     <Font name="Tahoma" size="17.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="nombreAdmin" alignment="CENTER" layoutX="11.0" layoutY="138.0" prefHeight="25.0" prefWidth="190.0" text="Usuario" style="-fx-text-fill: white;">
+                              <Label fx:id="nombreAdmin" alignment="CENTER" layoutX="11.0" layoutY="138.0" prefHeight="25.0" prefWidth="190.0" style="-fx-text-fill: white;" text="Usuario">
                                  <font>
                                     <Font name="Tahoma Bold" size="20.0" />
                                  </font>
                               </Label>
                               <Line endX="65.0" layoutX="124.0" layoutY="176.0" startX="-100.0" />
-                              <Button fx:id="homeBoton" layoutX="17.0" layoutY="204.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="Home" style="-fx-text-fill: white; -fx-background-color: #873773;" />
-                              <Button fx:id="usuariosBoton" layoutX="17.0" layoutY="239.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="Usuarios" style="-fx-text-fill: white; -fx-background-color: #873773;" />
-                              <Button fx:id="productosBoton" layoutX="17.0" layoutY="274.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="Productos" style="-fx-text-fill: white; -fx-background-color: #873773;" />
-                              <Button fx:id="ventasBoton" layoutX="17.0" layoutY="309.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" text="Ventas" style="-fx-text-fill: white; -fx-background-color: #873773;" />
-                              <Button layoutX="64.0" layoutY="507.0" mnemonicParsing="false" onAction="#cerrarSesionBoton" text="Cerrar Sesión" style="-fx-text-fill: white; -fx-background-color: #873773;" />
+                              <Button fx:id="homeBoton" layoutX="17.0" layoutY="204.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" style="-fx-text-fill: white; -fx-background-color: #873773;" text="Home" />
+                              <Button fx:id="usuariosBoton" layoutX="17.0" layoutY="239.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" style="-fx-text-fill: white; -fx-background-color: #873773;" text="Usuarios" />
+                              <Button fx:id="productosBoton" layoutX="17.0" layoutY="274.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" style="-fx-text-fill: white; -fx-background-color: #873773;" text="Productos" />
+                              <Button fx:id="ventasBoton" layoutX="17.0" layoutY="309.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" style="-fx-text-fill: white; -fx-background-color: #873773;" text="Ventas" />
+                              <Button layoutX="64.0" layoutY="507.0" mnemonicParsing="false" onAction="#cerrarSesionBoton" style="-fx-text-fill: white; -fx-background-color: #873773;" text="Cerrar Sesión" />
                               <ImageView fitHeight="135.0" fitWidth="105.0" layoutX="55.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbe_zN3e0RBd4uOkr95oI8vJspeG7B5Y1UhNvw2HFabA1kDwmb_ZCqIordrCbAKdCxsJacBtX6K-2Qdm9lxDHG4CsveZ0qPe7jta0XNfXLSxNxMeKc6pu7VSjBqsqN-Yh8TDQgBxxGzUWo9wPsgfd7juo8AitGvyv0c0eKyBLKq4YsPxYcXtbJxqL28o5S/s96/icons8-gerente-96.png" />
@@ -92,13 +92,9 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="homeForm" layoutX="121.0" layoutY="102.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="homeForm" layoutX="121.0" layoutY="102.0" prefHeight="555.0" prefWidth="889.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="14.0" layoutY="15.0" prefHeight="526.0" prefWidth="859.0">
-                                 <children>
-                                    <AnchorPane prefHeight="155.0" prefWidth="859.0" />
-                                 </children>
-                              </AnchorPane>
+                              <AnchorPane layoutX="14.0" layoutY="15.0" prefHeight="526.0" prefWidth="859.0" />
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="usuarioForm" layoutX="118.0" layoutY="46.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -110,16 +106,16 @@
                                        <children>
                                           <TableView fx:id="usuarioTabla" layoutX="10.0" layoutY="42.0" prefHeight="227.0" prefWidth="840.0">
                                             <columns>
-                                              <TableColumn fx:id="usuarioColumnaTabla" prefWidth="110.0" text="Usuario"  />
-                                              <TableColumn fx:id="nombreUsuarioColumnaTabla" prefWidth="110.0" text="Nombre"  />
-                                                <TableColumn fx:id="apellidoUsuarioColumnaTabla" prefWidth="110.0" text="Apellido"  />
-                                                <TableColumn fx:id="cedulaUsuarioColumnaTabla" prefWidth="140.0" text="Cédula"  />
-                                                <TableColumn fx:id="edadUsuarioColumnaTabla" prefWidth="60.0" text="Edad"  />
-                                                <TableColumn fx:id="correoUsuarioColumnaTabla" prefWidth="350.0" text="Correo electrónico"  />
+                                              <TableColumn fx:id="usuarioColumnaTabla" prefWidth="110.0" text="Usuario" />
+                                              <TableColumn fx:id="nombreUsuarioColumnaTabla" prefWidth="110.0" text="Nombre" />
+                                                <TableColumn fx:id="apellidoUsuarioColumnaTabla" prefWidth="110.0" text="Apellido" />
+                                                <TableColumn fx:id="cedulaUsuarioColumnaTabla" prefWidth="140.0" text="Cédula" />
+                                                <TableColumn fx:id="edadUsuarioColumnaTabla" prefWidth="60.0" text="Edad" />
+                                                <TableColumn fx:id="correoUsuarioColumnaTabla" prefWidth="350.0" text="Correo electrónico" />
                                             </columns>
                                           </TableView>
                                           <TextField fx:id="buscarUsuarioIngreso" layoutX="34.0" layoutY="10.0" prefHeight="30.0" prefWidth="277.0" promptText="Buscar" />
-                                          <Button layoutX="336.0" layoutY="8.0" mnemonicParsing="false" onAction="#buscarUsuarioBoton" prefHeight="35.0" prefWidth="94.0" text="Buscar" style="-fx-background-color: #873773; -fx-text-fill: white; -fx-padding: 2px;" />
+                                          <Button layoutX="336.0" layoutY="8.0" mnemonicParsing="false" onAction="#buscarUsuarioBoton" prefHeight="35.0" prefWidth="94.0" style="-fx-background-color: #873773; -fx-text-fill: white; -fx-padding: 2px;" text="Buscar" />
                                           <ImageView fitHeight="27.0" fitWidth="23.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqp8HMJbSbcn_l1EOCUsn0i3ZJteFC0UsIPb8EZB2NEZoDHslHj2b_ScHJs4egLiBGtzvFEdTeh3cqb9yoyA3K2BXVkZsIRCFJnmt6gFQCL8X8Tz5uOORK3lc969kPXkR--MQfOHkTfICbA50mGEAC3ci3x7JlgbWHoMCjgcWLMY1GjGlabBMZrxVydojJ/s96/icons8-lupa-96.png" />
@@ -127,47 +123,47 @@
                                           </ImageView>
                                        </children>
                                     </AnchorPane>
-                                    <Label layoutX="24.0" layoutY="320.0" text="Usuario:" style="-fx-text-fill: white;">
+                                    <Label layoutX="24.0" layoutY="320.0" style="-fx-text-fill: white;" text="Usuario:">
                                        <font>
                                           <Font name="Tahoma" size="14.0" />
                                        </font>
                                     </Label>
                                     <TextField fx:id="usuarioIngreso" layoutX="86.0" layoutY="317.0" prefHeight="26.0" prefWidth="172.0" />
-                                    <Label layoutX="23.0" layoutY="354.0" text="Nombre:" style="-fx-text-fill: white;">
+                                    <Label layoutX="23.0" layoutY="354.0" style="-fx-text-fill: white;" text="Nombre:">
                                        <font>
                                           <Font name="Tahoma" size="14.0" />
                                        </font>
                                     </Label>
                                     <TextField fx:id="nombreUsuarioIngreso" layoutX="86.0" layoutY="350.0" prefHeight="26.0" prefWidth="172.0" />
-                                    <Label layoutX="23.0" layoutY="393.0" text="Apellido:" style="-fx-text-fill: white;">
+                                    <Label layoutX="23.0" layoutY="393.0" style="-fx-text-fill: white;" text="Apellido:">
                                        <font>
                                           <Font name="Tahoma" size="14.0" />
                                        </font>
                                     </Label>
                                     <TextField fx:id="apellidoUsuarioIngreso" layoutX="86.0" layoutY="389.0" prefHeight="26.0" prefWidth="172.0" />
-                                    <Label layoutX="304.0" layoutY="321.0" text="Cédula:" style="-fx-text-fill: white;">
+                                    <Label layoutX="304.0" layoutY="321.0" style="-fx-text-fill: white;" text="Cédula:">
                                        <font>
                                           <Font name="Tahoma" size="14.0" />
                                        </font>
                                     </Label>
                                     <TextField fx:id="cedulaUsuarioIngreso" layoutX="367.0" layoutY="317.0" prefHeight="26.0" prefWidth="172.0" />
-                                    <Label layoutX="304.0" layoutY="354.0" text="Edad:" style="-fx-text-fill: white;">
+                                    <Label layoutX="304.0" layoutY="354.0" style="-fx-text-fill: white;" text="Edad:">
                                        <font>
                                           <Font name="Tahoma" size="14.0" />
                                        </font>
                                     </Label>
                                     <TextField fx:id="edadUsuarioIngreso" layoutX="367.0" layoutY="350.0" prefHeight="26.0" prefWidth="172.0" />
-                                    <Label layoutX="304.0" layoutY="393.0" text="Corrreo electrónico:" style="-fx-text-fill: white;">
+                                    <Label layoutX="304.0" layoutY="393.0" style="-fx-text-fill: white;" text="Corrreo electrónico:">
                                        <font>
                                           <Font name="Tahoma" size="14.0" />
                                        </font>
                                     </Label>
                                     <TextField fx:id="correoUsuarioIngreso" layoutX="434.0" layoutY="389.0" prefHeight="26.0" prefWidth="230.0" />
-                                    <Button layoutX="737.0" layoutY="462.0" mnemonicParsing="false" onAction="#actualizarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Actualizar" style="-fx-text-fill: white; -fx-background-color: #873773;" />
-                                    <Button layoutX="632.0" layoutY="462.0" mnemonicParsing="false" onAction="#eliminarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Eliminar" style="-fx-text-fill: white; -fx-background-color: #873773;" />
-                                    <Button layoutX="527.0" layoutY="462.0" mnemonicParsing="false" onAction="#crearUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Crear" style="-fx-text-fill: white; -fx-background-color: #873773;" />
-                                    <Button layoutX="418.0" layoutY="462.0" mnemonicParsing="false" onAction="#limpiarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" text="Limpiar" style="-fx-text-fill: white; -fx-background-color: #873773;" />
-                                    <Label layoutX="24.0" layoutY="440.0" text="Contraseña:" style="-fx-text-fill: white;">
+                                    <Button layoutX="737.0" layoutY="462.0" mnemonicParsing="false" onAction="#actualizarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" style="-fx-text-fill: white; -fx-background-color: #873773;" text="Actualizar" />
+                                    <Button layoutX="632.0" layoutY="462.0" mnemonicParsing="false" onAction="#eliminarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" style="-fx-text-fill: white; -fx-background-color: #873773;" text="Eliminar" />
+                                    <Button layoutX="527.0" layoutY="462.0" mnemonicParsing="false" onAction="#crearUsuarioBoton" prefHeight="41.0" prefWidth="94.0" style="-fx-text-fill: white; -fx-background-color: #873773;" text="Crear" />
+                                    <Button layoutX="418.0" layoutY="462.0" mnemonicParsing="false" onAction="#limpiarUsuarioBoton" prefHeight="41.0" prefWidth="94.0" style="-fx-text-fill: white; -fx-background-color: #873773;" text="Limpiar" />
+                                    <Label layoutX="24.0" layoutY="440.0" style="-fx-text-fill: white;" text="Contraseña:">
                                        <font>
                                           <Font name="Tahoma" size="14.0" />
                                        </font>
@@ -176,23 +172,23 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="productosForm" layoutX="14.0" layoutY="14.0" prefHeight="555.0" prefWidth="889.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="productosForm" layoutX="14.0" layoutY="14.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="17.0" layoutY="14.0" prefHeight="525.0" prefWidth="330.0">
                                  <children>
-                                    <Label layoutX="60.0" layoutY="47.0" text="Código:" style="-fx-text-fill: white;" />
+                                    <Label layoutX="60.0" layoutY="47.0" style="-fx-text-fill: white;" text="Código:" />
                                     <TextField fx:id="codigoProductoIngreso" layoutX="111.0" layoutY="43.0" prefHeight="26.0" prefWidth="209.0" />
-                                    <Label layoutX="57.0" layoutY="88.0" text="Nombre:" style="-fx-text-fill: white;" />
+                                    <Label layoutX="57.0" layoutY="88.0" style="-fx-text-fill: white;" text="Nombre:" />
                                     <TextField fx:id="nombreProductoIngreso" layoutX="111.0" layoutY="83.0" prefHeight="26.0" prefWidth="208.0" />
-                                    <Label layoutX="63.0" layoutY="126.0" text="Precio:" style="-fx-text-fill: white;" />
+                                    <Label layoutX="63.0" layoutY="126.0" style="-fx-text-fill: white;" text="Precio:" />
                                     <TextField fx:id="precioProductoIngreso" layoutX="111.0" layoutY="121.0" prefHeight="26.0" prefWidth="79.0" />
-                                    <Button layoutX="116.0" layoutY="275.0" mnemonicParsing="false" onAction="#buscarProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Buscar" style="-fx-background-color: #873773; -fx-text-fill: white;" />
-                                    <Button layoutX="116.0" layoutY="225.0" mnemonicParsing="false" onAction="#limpiarProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Limpiar" style="-fx-background-color: #873773; -fx-text-fill: white;" />
-                                    <Button layoutX="116.0" layoutY="378.0" mnemonicParsing="false" onAction="#actualizarProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Actualizar" style="-fx-background-color: #873773; -fx-text-fill: white;" />
-                                    <Button layoutX="116.0" layoutY="328.0" mnemonicParsing="false" onAction="#eliminarProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Eliminar" style="-fx-background-color: #873773; -fx-text-fill: white;" />
-                                    <Label layoutX="65.0" layoutY="167.0" text="Stock:" style="-fx-text-fill: white; " />
+                                    <Button layoutX="116.0" layoutY="275.0" mnemonicParsing="false" onAction="#buscarProductoBoton" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #873773; -fx-text-fill: white;" text="Buscar" />
+                                    <Button layoutX="116.0" layoutY="225.0" mnemonicParsing="false" onAction="#limpiarProductoBoton" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #873773; -fx-text-fill: white;" text="Limpiar" />
+                                    <Button layoutX="116.0" layoutY="378.0" mnemonicParsing="false" onAction="#actualizarProductoBoton" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #873773; -fx-text-fill: white;" text="Actualizar" />
+                                    <Button layoutX="116.0" layoutY="328.0" mnemonicParsing="false" onAction="#eliminarProductoBoton" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #873773; -fx-text-fill: white;" text="Eliminar" />
+                                    <Label layoutX="65.0" layoutY="167.0" style="-fx-text-fill: white; " text="Stock:" />
                                     <TextField fx:id="stockProductoIngreso" layoutX="111.0" layoutY="162.0" prefHeight="26.0" prefWidth="79.0" />
-                                    <Button layoutX="116.0" layoutY="430.0" mnemonicParsing="false" onAction="#crearProductoBoton" prefHeight="38.0" prefWidth="99.0" text="Crear" style="-fx-background-color: #873773; -fx-text-fill: white;" />
+                                    <Button layoutX="116.0" layoutY="430.0" mnemonicParsing="false" onAction="#crearProductoBoton" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #873773; -fx-text-fill: white;" text="Crear" />
                                     <ImageView fitHeight="29.0" fitWidth="31.0" layoutX="14.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia5ObqJs0xEOjo6WJ4Iiz9HIsUEU6TNtolFhduyQ-5erpm-d9e73gFEgw3lQIY8kHmvH-3qr1xs14dl9siGazypgwFYxZunH20bX26M41Q3nd1lWpO7mr__aKHqewY-BmOrCydLlQs66EM7TGsSF1Msnx43hoQHrJB0JLwL_RwHPO8QBkvHsr7GhZCrzZE/s100/icons8-esc%C3%A1ner-de-c%C3%B3digo-de-barras.png" />
