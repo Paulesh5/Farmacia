@@ -94,7 +94,7 @@ Automaticamente nos enseñará esta ventana:
 
 ![image](https://github.com/Paulesh5/Farmacia/assets/139184732/8fae2288-b1b8-475b-a4ce-bf352e374c12)
 
-y Mediiante esas credenciales podrás iniciar sesión desde cajero.
+y Mediante esas credenciales podrás iniciar sesión desde cajero.
 
 ![image](https://github.com/Paulesh5/Farmacia/assets/139184732/6b264c93-36c4-4635-9cc9-cef5317b9488)
 
