@@ -1,4 +1,4 @@
-##BASE DE DATOS
+## BASE DE DATOS
 Primero partiremos con la creación de la Base de Datos y Tablas en MySQL
 
 ###Creación de la Base de Datos
