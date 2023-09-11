@@ -1,8 +1,7 @@
-
-
+##BASE DE DATOS
 Primero partiremos con la creación de la Base de Datos y Tablas en MySQL
 
-Creación de la Base de Datos
+###Creación de la Base de Datos
 
 Se ha creado una base de datos denominada "FARMACIA" para albergar toda la información relacionada con la gestión de la farmacia.
 
