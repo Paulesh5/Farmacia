@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Correccion factura" />
+    <list default="true" id="d8d948eb-76fa-4b74-988a-02d5406d269c" name="Changes" comment="Panel Factura">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/cajeroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/cajeroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/datosProductos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/datosProductos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/farmacia/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example/farmacia/loginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/example/farmacia/cajero.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/example/farmacia/cajero.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -195,15 +203,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694108186538</updated>
     </task>
-    <task id="LOCAL-00015" summary="Correccion factura">
-      <option name="closed" value="true" />
-      <created>1694243369370</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1694243369370</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,8 +232,7 @@
     <MESSAGE value="Correccion imagenes 4" />
     <MESSAGE value="Correccion imagenes 5" />
     <MESSAGE value="Panel Factura" />
-    <MESSAGE value="Correccion factura" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion factura" />
+    <option name="LAST_COMMIT_MESSAGE" value="Panel Factura" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
