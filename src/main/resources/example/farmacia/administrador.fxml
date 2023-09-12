@@ -92,9 +92,9 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="homeForm" layoutX="121.0" layoutY="102.0" prefHeight="555.0" prefWidth="889.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="homeForm" layoutX="121.0" layoutY="102.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="14.0" layoutY="15.0" prefHeight="526.0" prefWidth="859.0" />
+                              <AnchorPane layoutX="15.0" layoutY="15.0" prefHeight="526.0" prefWidth="859.0" />
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="usuarioForm" layoutX="118.0" layoutY="46.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -219,6 +219,39 @@
                                         <TableColumn fx:id="nombreProductoColumnaTabla" prefWidth="150.0" text="Nombre" />
                                           <TableColumn fx:id="precioProductoColumnaTabla" prefWidth="100.0" text="Precio" />
                                           <TableColumn fx:id="stockProductoColumnaTabla" prefWidth="100.0" text="Stock" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="ventasForm" layoutX="216.0" layoutY="110.0" prefHeight="555.0" prefWidth="889.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="20.0" layoutY="11.0" prefHeight="533.0" prefWidth="259.0">
+                                 <children>
+                                    <Label layoutX="23.0" layoutY="46.0" style="-fx-text-fill: white;" text="ID Fac." />
+                                    <TextField fx:id="idVentaIngreso" layoutX="84.0" layoutY="42.0" prefHeight="26.0" prefWidth="92.0" />
+                                    <Button layoutX="83.0" layoutY="101.0" mnemonicParsing="false" onAction="#buscarVentaBoton" prefHeight="41.0" prefWidth="94.0" style="-fx-text-fill: white; -fx-background-color: #873773;" text="Buscar" />
+                                    <Label layoutX="24.0" layoutY="161.0" style="-fx-text-fill: white;" text="Nombre  cajero" />
+                                    <TextField fx:id="nombreCajeroResultadoVenta" disable="true" layoutX="24.0" layoutY="189.0" prefHeight="26.0" prefWidth="214.0" />
+                                    <Label layoutX="23.0" layoutY="224.0" style="-fx-text-fill: white;" text="Fecha" />
+                                    <TextField fx:id="fechaResultadoVenta" disable="true" layoutX="23.0" layoutY="252.0" prefHeight="26.0" prefWidth="214.0" />
+                                    <Label layoutX="24.0" layoutY="293.0" style="-fx-text-fill: white;" text="URL Archivo" />
+                                    <TextField fx:id="urlResultadoVenta" disable="true" layoutX="24.0" layoutY="321.0" prefHeight="26.0" prefWidth="214.0" />
+                                    <Label layoutX="23.0" layoutY="360.0" style="-fx-text-fill: white;" text="Total" />
+                                    <TextField fx:id="totalResultadoVenta" disable="true" layoutX="23.0" layoutY="388.0" prefHeight="26.0" prefWidth="214.0" />
+                                    <Button layoutX="83.0" layoutY="458.0" mnemonicParsing="false" onAction="#limpiarFormularioV" prefHeight="41.0" prefWidth="94.0" style="-fx-text-fill: white; -fx-background-color: #873773;" text="Limpiar" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="298.0" layoutY="14.0" prefHeight="532.0" prefWidth="581.0">
+                                 <children>
+                                    <TableView fx:id="ventasTabla" layoutX="8.0" layoutY="8.0" prefHeight="523.0" prefWidth="571.0">
+                                      <columns>
+                                        <TableColumn fx:id="idVentaColumnaTabla" prefWidth="63.0" text="ID" />
+                                        <TableColumn fx:id="nombreCajeroVentaColumnaTabla" prefWidth="115.0" text="Nombre cajero" />
+                                          <TableColumn fx:id="fechaVentaColumnaTabla" prefWidth="113.0" text="Fecha" />
+                                          <TableColumn fx:id="urlVentaColumnaTabla" prefWidth="215.0" text="URL Archivo" />
+                                          <TableColumn fx:id="totalVentaColumnaTabla" prefWidth="64.0" text="Total" />
                                       </columns>
                                     </TableView>
                                  </children>

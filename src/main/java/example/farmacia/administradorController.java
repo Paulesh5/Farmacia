@@ -120,11 +120,87 @@ public class administradorController {
 
     @FXML
     private Button ventasBoton;
+    @FXML
+    private AnchorPane ventasForm;
+    @FXML
+    private TableView<datosVentas> ventasTabla;
+
+    @FXML
+    private TextField fechaResultadoVenta;
+
+    @FXML
+    private TableColumn<datosVentas, String> fechaVentaColumnaTabla;
+    @FXML
+    private TableColumn<datosVentas, String> idVentaColumnaTabla;
+    @FXML
+    private TextField idVentaIngreso;
+    @FXML
+    private TextField nombreCajeroResultadoVenta;
+
+    @FXML
+    private TableColumn<datosVentas, String> nombreCajeroVentaColumnaTabla;
+    @FXML
+    private TextField totalResultadoVenta;
+
+    @FXML
+    private TableColumn<datosVentas, String> totalVentaColumnaTabla;
+
+    @FXML
+    private TextField urlResultadoVenta;
+
+    @FXML
+    private TableColumn<datosVentas, String> urlVentaColumnaTabla;
+
+
 
     private Connection connect;
     private Statement statement;
     private PreparedStatement prepare;
     private ResultSet result;
+
+    @FXML
+    void buscarVentaBoton(ActionEvent event) {
+        String sql = "SELECT * FROM Facturas WHERE id = "
+                + idVentaIngreso.getText();
+
+        connect = database.connectDb();
+
+        try {
+            Alert alert;
+            statement = connect.createStatement();
+            result = statement.executeQuery(sql);
+
+            if (result.next()) {
+                prepare = connect.prepareStatement(sql);
+                nombreCajeroResultadoVenta.setText(result.getString("nombre_cajero"));
+                fechaResultadoVenta.setText(result.getString("fechafacturacion"));
+                urlResultadoVenta.setText(result.getString("url_archivo"));
+                totalResultadoVenta.setText(result.getString("total_factura"));
+
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Mensaje informativo");
+                alert.setHeaderText(null);
+                alert.setContentText("Venta encontrada en la base de datos.");
+                alert.showAndWait();
+                addListaDatosProductosMostrar();
+            } else {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Mensaje Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Venta: " + idVentaIngreso.getText() + " no existe en la base de datos.");
+                alert.showAndWait();
+                idVentaIngreso.setText("");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void limpiarFormularioV(ActionEvent event) {
+        limpiarFormularioV();
+        addListaDatosVentasMostrar();
+    }
+
 
     public ObservableList<datosUsuarios> addListaDatosUsuarios(){
 
@@ -175,8 +251,33 @@ public class administradorController {
         return listaDatosP;
     }
 
+    public ObservableList<datosVentas> addListaDatosVentas(){
+
+        ObservableList<datosVentas> listaDatosV = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM Facturas";
+
+        connect = database.connectDb();
+
+        try{
+            prepare = connect.prepareStatement(sql);
+            result = prepare.executeQuery();
+            datosVentas datoVenta;
+
+            while (result.next()){
+                datoVenta = new datosVentas(result.getInt("id")
+                        , result.getString("nombre_cajero")
+                        , result.getString("fechafacturacion")
+                        , result.getBlob("url_archivo")
+                        , result.getDouble("total_factura"));
+                listaDatosV.add(datoVenta);
+            }
+        }catch (Exception e){e.printStackTrace();}
+        return listaDatosV;
+    }
+
     private ObservableList<datosUsuarios> addListaDatosUsuarios;
     private ObservableList<datosProductos> addListaDatosProductos;
+    private ObservableList<datosVentas> addListaDatosVentas;
     public void addListaDatosUsuariosMostrar(){
         addListaDatosUsuarios = addListaDatosUsuarios();
 
@@ -198,6 +299,19 @@ public class administradorController {
         stockProductoColumnaTabla.setCellValueFactory(new PropertyValueFactory<>("stock"));
 
         productosTabla.setItems(addListaDatosProductos);
+    }
+
+    public void addListaDatosVentasMostrar(){
+        addListaDatosVentas = addListaDatosVentas();
+
+        idVentaColumnaTabla.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nombreCajeroVentaColumnaTabla.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        fechaVentaColumnaTabla.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        urlVentaColumnaTabla.setCellValueFactory(new PropertyValueFactory<>("url"));
+        totalVentaColumnaTabla.setCellValueFactory(new PropertyValueFactory<>("total"));
+
+
+        ventasTabla.setItems(addListaDatosVentas);
     }
 
     public void addUsuariosSelect(){
@@ -232,6 +346,20 @@ public class administradorController {
 
     }
 
+    public void addVentasSelect(){
+        datosVentas datoVenta = ventasTabla.getSelectionModel().getSelectedItem();
+        int num = ventasTabla.getSelectionModel().getSelectedIndex();
+
+        if((num - 1) < -1){
+            return;
+        }
+
+        nombreCajeroResultadoVenta.setText(datoVenta.getNombre());
+        fechaResultadoVenta.setText(datoVenta.getFecha());
+        urlResultadoVenta.setText(datoVenta.getUrl().toString());
+        totalResultadoVenta.setText(String.valueOf(datoVenta.getTotal()));
+    }
+
     public void displayNombreAdmin(){
         nombreAdmin.setText(getData.adminNombre);
     }
@@ -241,17 +369,25 @@ public class administradorController {
             homeForm.setVisible(true);
             usuarioForm.setVisible(false);
             productosForm.setVisible(false);
+            ventasForm.setVisible(false);
         }else if (event.getSource() == usuariosBoton){
             addListaDatosUsuariosMostrar();
             homeForm.setVisible(false);
             usuarioForm.setVisible(true);
-            addListaDatosUsuariosMostrar();
             productosForm.setVisible(false);
+            ventasForm.setVisible(false);
         }else if (event.getSource() == productosBoton){
             homeForm.setVisible(false);
             usuarioForm.setVisible(false);
             productosForm.setVisible(true);
+            ventasForm.setVisible(false);
             addListaDatosProductosMostrar();
+        }else if (event.getSource() == ventasBoton){
+            homeForm.setVisible(false);
+            usuarioForm.setVisible(false);
+            productosForm.setVisible(false);
+            ventasForm.setVisible(true);
+            addListaDatosVentasMostrar();
         }
     }
     @FXML
@@ -588,6 +724,13 @@ public class administradorController {
         precioProductoIngreso.setText("");
         stockProductoIngreso.setText("");
     }
+    public void limpiarFormularioV(){
+        idVentaIngreso.setText("");
+        nombreCajeroResultadoVenta.setText("");
+        fechaResultadoVenta.setText("");
+        urlResultadoVenta.setText("");
+        totalResultadoVenta.setText("");
+    }
 
     @FXML
     void eliminarProductoBoton(ActionEvent event) {
@@ -710,5 +853,6 @@ public class administradorController {
         displayNombreAdmin();
         addListaDatosUsuariosMostrar();
         addListaDatosProductosMostrar();
+        addListaDatosVentasMostrar();
     }
-}//2:20:31
+}
