@@ -391,13 +391,41 @@ public class cajeroController extends loginController{
         String correoCliente = EmailRespuesta.getText();
         String celularCliente = CelTelRespuesta.getText();
         String rucCliente = CIRUCRespuesta.getText();
-        String nombreArchivo = nombreCajero+"-num"+ NumFacLabel.getText() ;
+        String nombreArchivo = nombreCajero + "-num" + NumFacLabel.getText();
 
         cajeroController pdfGenerator = new cajeroController();
         actualizarStockEnBaseDeDatos(actualizar);
         pdfGenerator.generarFacturaPDF(actualizar, nombreCajero, nombreCliente, correoCliente, celularCliente, rucCliente, nombreArchivo);
+
+
+        limpiarCampos();
+
+
+
+        int nuevoNumeroFactura = Integer.parseInt(NumFacLabel.getText()) + 1;
+        NumFacLabel.setText(String.valueOf(nuevoNumeroFactura));
+
+
+        mostrarMensajeNotificacion("La factura se ha creado exitosamente.");
+
     }
 
+    private void limpiarCampos() {
+        NombreRespuesta.clear();
+        EmailRespuesta.clear();
+        CelTelRespuesta.clear();
+        CIRUCRespuesta.clear();
+        ProductoRespuesta.clear();
+        CodigodeProductoRespuesta.clear();
+        Cantidad.clear();
+        vista_prod.getItems().clear();
+        vista_fac.getItems().clear();
+        subtotalF = 0;
+        IVAC.setText("");
+        SubtotalC.setText("");
+        ValorTotalLabel.setText("");
+        actualizar.clear();
+    }
     @FXML
     void EliminarProductosButton(ActionEvent event) {
 
@@ -536,5 +564,12 @@ public class cajeroController extends loginController{
         return rutaG;
     }
 
+    private void mostrarMensajeNotificacion(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Notificación");
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
 
 }
