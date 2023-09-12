@@ -1,5 +1,8 @@
 package example.farmacia;
 
+import javax.sql.rowset.serial.SerialBlob;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +10,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,11 +26,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.common.PDRectangle;
-
+import com.itextpdf.text.Document;
 
 
 public class cajeroController extends loginController{
@@ -120,6 +123,7 @@ public class cajeroController extends loginController{
     private double iva;
     private double total;
     private ArrayList<Productofactura> actualizar = new ArrayList<>();
+    private String fechaActual;
     @FXML
     public void initialize() {
         String nombreUsuario = AppData.nombreUsuario;
@@ -128,7 +132,7 @@ public class cajeroController extends loginController{
         int numeroFactura = obtenerNumeroFacturaSecuencial();
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String fechaActual = sdf.format(new Date());
+        fechaActual = sdf.format(new Date());
 
         CajeroLabel.setText(cajero.getNombre());
         NumFacLabel.setText("" + numeroFactura);
@@ -289,60 +293,103 @@ public class cajeroController extends loginController{
         }catch(Exception e){e.printStackTrace();}
     }
 
-    public void generarFacturaPDF(List<Productofactura> productos, String nombreCajero,
+    public void generarFacturaPDF(ArrayList<Productofactura> productos, String nombreCajero,
                                   String nombreCliente, String correoCliente, String celularCliente,
-                                  String rucCliente, String nombreArchivo) throws IOException {
-        try (PDDocument document = new PDDocument()) {
-            PDPage page = new PDPage(PDRectangle.A4);
-            document.addPage(page);
+                                  String rucCliente, String nombreArchivo){
+        try{
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        fechaActual = sdf.format(new Date());
+        Document document = new Document();
+        String ruta = rutaAb(nombreArchivo);
+        Blob ruta2 = rutadb(nombreArchivo);
+        PdfWriter.getInstance(document, new FileOutputStream(ruta));
+        document.open();
+        Image logo = Image.getInstance("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEids1opaIM5ovupmuiquGrgHsa6pVf8o4yyc3PRR8MSBsMP5yBom-So7CPdGgxEgga0G7Mq2s8we1OfxfOpv-nqEx2ciWey8Uf98r9hNQyeWaVm4o1NZqu7Hbb9sBjnlVmEatTVU3AwXkJgjRQSGfgb-fYwzDK4hsDdKK0RZBnQ4blG5UM6LnlwVnQFJdGh/s961/fondo.jpg");
+        logo.scaleAbsolute(100,90);
+        logo.setAlignment(Chunk.ALIGN_LEFT);
+        document.add(logo);
 
-            try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
-                contentStream.beginText();
-                contentStream.newLineAtOffset(100, 700);
+        Paragraph cabecera = new Paragraph();
+        cabecera.setAlignment(Element.ALIGN_CENTER);
+        document.add(new Paragraph("OWL PHARMA"));
+        document.add(new Paragraph("La salud los más importante de la vida"));
+        document.add(new Paragraph("RUC: 5543109213"));
+        document.add(new Paragraph("Fecha: "+fechaActual));
+        document.add(cabecera);
 
+        document.add(Chunk.NEWLINE);
 
-                contentStream.showText("Factura");
-                contentStream.newLine();
-                contentStream.showText("Cajero: " + nombreCajero);
-                contentStream.newLine();
-                contentStream.showText("Cliente: " + nombreCliente);
-                contentStream.newLine();
-                contentStream.showText("Correo: " + correoCliente);
-                contentStream.newLine();
-                contentStream.showText("Celular: " + celularCliente);
-                contentStream.newLine();
-                contentStream.showText("RUC: " + rucCliente);
-                contentStream.newLine();
-                contentStream.newLine();
+        Paragraph datos = new Paragraph();
+        datos.setAlignment(Element.ALIGN_LEFT);
+        document.add(new Paragraph("Cliente: " + nombreCliente));
+        document.add(new Paragraph("Cedula: "+ rucCliente));
+        document.add(new Paragraph("Teléfono/Celular: "+ celularCliente));
+        document.add(new Paragraph("Email: "+ correoCliente));
+        document.add(datos);
 
-
-                for (Productofactura producto : productos) {
-                    contentStream.showText("Producto: " + producto.getNombre());
-                    contentStream.newLine();
-                    contentStream.showText("Precio: " + producto.getPrecio());
-                    contentStream.newLine();
-                    contentStream.showText("Cantidad: " + producto.getStock());
-                    contentStream.newLine();
-                    contentStream.showText("Subtotal: " + producto.getSubtotal());
-                    contentStream.newLine();
-                    contentStream.newLine();
-                }
-
-                contentStream.endText();
-            }
-
-            // Guardar el documento PDF
-            document.save(nombreArchivo + ".pdf");
+        document.add(Chunk.NEWLINE);
+        PdfPTable tabla = new PdfPTable(5);
+        tabla.setWidthPercentage(100);
+        PdfPCell nombre = new PdfPCell(new Phrase("Nombre"));
+        PdfPCell codigo = new PdfPCell(new Phrase("Codigo"));
+        PdfPCell cantidad = new PdfPCell(new Phrase("Cantidad"));
+        PdfPCell precio = new PdfPCell(new Phrase("Valor U"));
+        PdfPCell subtotal = new PdfPCell(new Phrase("subtotal"));
+        tabla.addCell(nombre);
+        tabla.addCell(codigo);
+        tabla.addCell(cantidad);
+        tabla.addCell(precio);
+        tabla.addCell(subtotal);
+        for(Productofactura act : productos ){
+            tabla.addCell(act.getNombre());
+            tabla.addCell(String.valueOf(act.getCodigo()));
+            tabla.addCell(String.valueOf(act.getStock()));
+            tabla.addCell(String.valueOf(act.getPrecio()));
+            tabla.addCell(String.valueOf(act.getSubtotal()));
         }
+        document.add(tabla);
+        document.add(Chunk.NEWLINE);
+        Paragraph total = new Paragraph();
+        total.setAlignment(Element.ALIGN_RIGHT);
+        for(Productofactura act : productos){
+            subtotalF = subtotalF + act.getSubtotal();
+        }
+        iva = subtotalF * 0.12;
+        double totalf = iva + subtotalF;
+
+        document.add(new Paragraph("Subtotal: "+ subtotalF));
+        document.add(new Paragraph("I.V.A.: "+ iva));
+        document.add(new Paragraph("Total: " + totalf));
+        document.add(total);
+        document.close();
+
+        actualizarStockEnBaseDeDatos(productos);
+        almancenarpdf(nombreCajero,ruta2,totalf);
+        ProcessBuilder p = new ProcessBuilder();
+        p.command("cmd.exe",ruta);
+        } catch (DocumentException e) {
+            throw new RuntimeException(e);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("OWN-PHARMA");
+        alert.setContentText("La factura se a creado exitosamente");
     }
     @FXML
-    void CrearFacturaButton(ActionEvent event) throws IOException {
+    void CrearFacturaButton(ActionEvent event) {
         String nombreCajero = CajeroLabel.getText();
         String nombreCliente = NombreRespuesta.getText();
         String correoCliente = EmailRespuesta.getText();
         String celularCliente = CelTelRespuesta.getText();
         String rucCliente = CIRUCRespuesta.getText();
-        String nombreArchivo = "factura";
+        String nombreArchivo = nombreCajero+"-num"+ NumFacLabel.getText() ;
 
         cajeroController pdfGenerator = new cajeroController();
         pdfGenerator.generarFacturaPDF(actualizar, nombreCajero, nombreCliente, correoCliente, celularCliente, rucCliente, nombreArchivo);
@@ -394,7 +441,8 @@ public class cajeroController extends loginController{
         int cantidadP = Integer.parseInt(Cantidad.getText());
         float precioP = (float) producto.getPrecio();
         float Subtotal = cantidadP * precioP;
-        Productofactura productof = new Productofactura(producto.getCodigo(), producto.getNombre(), producto.getPrecio(), cantidadP, Subtotal );
+        int stockD= producto.getStock()-cantidadP;
+        Productofactura productof = new Productofactura(producto.getCodigo(), producto.getNombre(), producto.getPrecio(), cantidadP, Subtotal, stockD );
         vista_fac.getItems().add(productof);
         ProductoColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         CodigoProductoColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("codigo"));
@@ -402,18 +450,37 @@ public class cajeroController extends loginController{
         PVPColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("precio"));
         SubstotalColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("subtotal"));
         actualizar.add(productof);
+
     }
 
-    private void actualizarStockEnBaseDeDatos(datosProductos producto) {
-        int nuevoStock = producto.getStock() - 1;
-        String sql = "UPDATE PRODUCTOS SET stock = ? WHERE codigo = ?";
+    private void actualizarStockEnBaseDeDatos(ArrayList<Productofactura> producto) {
 
-        try (Connection connection = database.connectDb();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+        try (Connection connection = database.connectDb()) {
+                for(Productofactura act: producto){
+                    String sql = "UPDATE PRODUCTOS SET stock = ? WHERE codigo = ?";
+                    PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                    preparedStatement.setInt(1,act.getFinalStock());
+                    preparedStatement.setInt(2,act.getCodigo());
+                    preparedStatement.executeQuery();
+                }
 
-            preparedStatement.setInt(1, nuevoStock);
-            preparedStatement.setInt(2, producto.getCodigo());
-            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            mostrarMensajeError("Error al actualizar el stock en la base de datos.");
+        }
+    }
+    private  void almancenarpdf(String nombre, Blob pdfurl, double total){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        fechaActual = sdf.format(new Date());
+        try{
+            String sql = "INSERT INTO Facturas (nombre_cajero, fechafacturacion, url_archivo, total_factura) VALUES (?,?,?,?)";
+            Connection connection = database.connectDb();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,nombre);
+            preparedStatement.setDate(2, java.sql.Date.valueOf(fechaActual));
+            preparedStatement.setBlob(3,pdfurl);
+            preparedStatement.setDouble(4,total);
+            preparedStatement.executeQuery(sql);
         } catch (SQLException e) {
             e.printStackTrace();
             mostrarMensajeError("Error al actualizar el stock en la base de datos.");
@@ -437,5 +504,18 @@ public class cajeroController extends loginController{
         SubtotalC.setText(String.valueOf(subtotalF));
         ValorTotalLabel.setText(String.valueOf(total));
     }
+    private String rutaAb(String nombre){
+        String ruta = System.getProperty("user.dir");
+        String rutafinal = ruta + "\\facturas_pdf\\"+ nombre + ".pdf";
+        return rutafinal;
+    }
+    private Blob rutadb(String nombre) throws SQLException {
+        String ruta = System.getProperty("user.dir");
+        String rutafinal = ruta + "\\facturas_pdf\\"+ nombre + ".pdf";
+        byte[] bytedata =   rutafinal.getBytes();
+        Blob rutaG = new SerialBlob(bytedata);
+        return rutaG;
+    }
+
 
 }

@@ -30,10 +30,6 @@ public class loginController {
         usuarioComboBox.getItems().addAll("Administrador", "Cajero");
     }
 
-    public class AppData {
-        public static String nombreUsuario = "";
-    }
-
     @FXML
     void inicioBoton(ActionEvent event) {
         String usuario = usuarioIngreso.getText();
@@ -41,7 +37,8 @@ public class loginController {
         String rolSeleccionado = usuarioComboBox.getValue();
 
         if (validarCredenciales(usuario, pass, rolSeleccionado)) {
-            AppData.nombreUsuario = usuarioIngreso.getText();
+            getData.adminNombre = usuarioIngreso.getText();
+            getData.nombreUsuario = usuarioIngreso.getText();
             cargarVista(event, rolSeleccionado.toLowerCase() + ".fxml");
         } else {
             mostrarMensajeError("Credenciales incorrectas", "El usuario o la contraseña son incorrectos.");
@@ -59,7 +56,7 @@ public class loginController {
     private boolean validarCredenciales(String usuario, String pass, String rol) {
         final String DB_URL="jdbc:mysql://localhost/farmacia";
         final String USER = "root";
-        final String PASS ="gilmar2003";
+        final String PASS ="root_bas3";
         final String QUERY= "SELECT * FROM " + rol.toUpperCase();
 
         try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASS)) {

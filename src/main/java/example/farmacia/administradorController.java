@@ -236,6 +236,7 @@ public class administradorController {
         nombreAdmin.setText(getData.adminNombre);
     }
     public void switchForm(ActionEvent event){
+        displayNombreAdmin();
         if (event.getSource() == homeBoton){
             homeForm.setVisible(true);
             usuarioForm.setVisible(false);
