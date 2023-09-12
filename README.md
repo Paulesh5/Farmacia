@@ -100,9 +100,12 @@ y Mediante esas credenciales podrás iniciar sesión desde cajero.
 
 Una vez que iniciemos sesión desde cajero, nosotros podremos observar la interfaz con la cual nosotros haremos registros o modificaciones
 
-![image](https://github.com/Paulesh5/Farmacia/assets/139184732/265a0cc8-b0dc-49b0-9160-99fc3a428698)
+![image](https://github.com/Paulesh5/Farmacia/assets/139184732/b7951475-1d8e-4c09-888f-948342685961)
+
 
 En este panel contaremos con dos recuadros, pero el derecho unicamente es la vista previa de los productos disponibles y la izquierda va toda la informacion catalogada por campos como Cod Prod, Producto, Cantidad, P.V.P, Subtotal. Debido a que esta sera la información de lo que irá en los detalles de la factura
+Tambien tenemos a disposición un botón para crear a partir de los datos registrados un pdf.
+
 
 
 
