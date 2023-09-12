@@ -2,7 +2,19 @@
 
 https://youtu.be/BBFx4tJvmck
 
+##INTEGRANTES:
+
+Hidalgo Paul
+
+Morales Gilmar
+
+Lascano David
+
+Ruiz Erick
+
+
 ## BASE DE DATOS
+
 Primero partiremos con la creación de la Base de Datos y Tablas en MySQL
 
 ### Creación de la Base de Datos
@@ -111,6 +123,10 @@ Una vez que iniciemos sesión desde cajero, nosotros podremos observar la interf
 En este panel contaremos con dos recuadros, pero el derecho unicamente es la vista previa de los productos disponibles y la izquierda va toda la informacion catalogada por campos como Cod Prod, Producto, Cantidad, P.V.P, Subtotal. Debido a que esta sera la información de lo que irá en los detalles de la factura
 Tambien tenemos a disposición un botón para crear a partir de los datos registrados un pdf.
 
+
+![imagen](https://github.com/Paulesh5/Farmacia/assets/117743844/601cccc8-cf66-4166-b217-e2a46c5bda1e)
+
+Este archivo PDF se genera al momento de presionar el botón para generarlo pero este se encontrará en eñl directorio de la carpeta del proyecto  dentro de los proyectos de Intelligent IDEA.
 
 
 
