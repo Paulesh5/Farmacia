@@ -126,7 +126,7 @@ public class cajeroController extends loginController{
     private String fechaActual;
     @FXML
     public void initialize() {
-        String nombreUsuario = AppData.nombreUsuario;
+        String nombreUsuario = getData.nombreUsuario;
         datosUsuarios cajero = obtenerCajeroDesdeBD(nombreUsuario);
 
         int numeroFactura = obtenerNumeroFacturaSecuencial();
@@ -392,6 +392,7 @@ public class cajeroController extends loginController{
         String nombreArchivo = nombreCajero+"-num"+ NumFacLabel.getText() ;
 
         cajeroController pdfGenerator = new cajeroController();
+        actualizarStockEnBaseDeDatos(actualizar);
         pdfGenerator.generarFacturaPDF(actualizar, nombreCajero, nombreCliente, correoCliente, celularCliente, rucCliente, nombreArchivo);
     }
 
@@ -428,7 +429,7 @@ public class cajeroController extends loginController{
         }else{
             if (productoSeleccionado != null) {
                 agregarProductoAFactura(productoSeleccionado);
-                //actualizarStockEnBaseDeDatos(productoSeleccionado);//Se ejecuta esta funcion despues de crear la factura
+
             } else {
                 mostrarMensajeError("Por favor, seleccione un producto de la lista.");
             }
@@ -446,29 +447,44 @@ public class cajeroController extends loginController{
         vista_fac.getItems().add(productof);
         ProductoColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         CodigoProductoColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("codigo"));
-        CantidadColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("stock")); // Se actualiza el stock en la tabla
+        CantidadColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("stock"));
         PVPColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("precio"));
         SubstotalColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("subtotal"));
         actualizar.add(productof);
 
     }
 
-    private void actualizarStockEnBaseDeDatos(ArrayList<Productofactura> producto) {
-
+    private void actualizarStockEnBaseDeDatos(ArrayList<Productofactura> productos) {
         try (Connection connection = database.connectDb()) {
-                for(Productofactura act: producto){
-                    String sql = "UPDATE PRODUCTOS SET stock = ? WHERE codigo = ?";
-                    PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                    preparedStatement.setInt(1,act.getFinalStock());
-                    preparedStatement.setInt(2,act.getCodigo());
-                    preparedStatement.executeQuery();
+            if (connection != null) {
+
+                connection.setAutoCommit(false);
+
+                for (Productofactura producto : productos) {
+                    String sql = "UPDATE PRODUCTOS SET stock = stock - ? WHERE codigo = ?";
+                    try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                        int cantidad = Integer.parseInt(Cantidad.getText());
+                        preparedStatement.setInt(1, cantidad);
+                        preparedStatement.setInt(2, producto.getCodigo());
+                        preparedStatement.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        mostrarMensajeError("Error al ejecutar la actualización en la base de datos.");
+                        // Si hay un error, realizar un rollback para deshacer los cambios
+                        connection.rollback();
+                        return;
+                    }
                 }
 
+
+                connection.commit();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            mostrarMensajeError("Error al actualizar el stock en la base de datos.");
+            mostrarMensajeError("Error al conectar con la base de datos.");
         }
     }
+
     private  void almancenarpdf(String nombre, Blob pdfurl, double total){
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         fechaActual = sdf.format(new Date());
