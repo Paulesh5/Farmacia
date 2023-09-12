@@ -1,3 +1,6 @@
+##MANUAL DE USUARIO
+https://youtu.be/BBFx4tJvmck
+
 ## BASE DE DATOS
 Primero partiremos con la creación de la Base de Datos y Tablas en MySQL
 
