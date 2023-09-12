@@ -6,15 +6,17 @@ public class Productofactura {
     private double precio;
     private Integer stock;
     private float subtotal;
+    private Integer finalStock;
 
 
 
-    public Productofactura(Integer codigo, String nombre, double precio, Integer stock, float subtotal) {
+    public Productofactura(Integer codigo, String nombre, double precio, Integer stock, float subtotal,Integer finalStock) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
         this.subtotal = subtotal;
+        this.finalStock = finalStock;
     }
 
     public Integer getCodigo() {
@@ -47,6 +49,22 @@ public class Productofactura {
 
     public void setSubtotal(float subtotal) {
         this.subtotal = subtotal;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Integer getFinalStock() {
+        return finalStock;
+    }
+
+    public void setFinalStock(Integer finalStock) {
+        this.finalStock = finalStock;
     }
 
     public Productofactura() {
