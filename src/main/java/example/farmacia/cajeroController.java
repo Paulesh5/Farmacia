@@ -362,11 +362,15 @@ public class cajeroController extends loginController{
         document.add(new Paragraph("Total: " + totalf));
         document.add(total);
         document.close();
-
-        actualizarStockEnBaseDeDatos(productos);
-        almancenarpdf(nombreCajero,ruta2,totalf);
         ProcessBuilder p = new ProcessBuilder();
         p.command("cmd.exe",ruta);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("OWN-PHARMA");
+        alert.setContentText("La factura se a creado exitosamente");
+        actualizarStockEnBaseDeDatos(productos);
+        almancenarpdf(nombreCajero,ruta2,totalf);
+
+
         } catch (DocumentException e) {
             throw new RuntimeException(e);
         } catch (FileNotFoundException e) {
@@ -378,9 +382,7 @@ public class cajeroController extends loginController{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("OWN-PHARMA");
-        alert.setContentText("La factura se a creado exitosamente");
+
     }
     @FXML
     void CrearFacturaButton(ActionEvent event) {
@@ -443,6 +445,7 @@ public class cajeroController extends loginController{
         float precioP = (float) producto.getPrecio();
         float Subtotal = cantidadP * precioP;
         int stockD= producto.getStock()-cantidadP;
+        System.out.println(stockD);
         Productofactura productof = new Productofactura(producto.getCodigo(), producto.getNombre(), producto.getPrecio(), cantidadP, Subtotal, stockD );
         vista_fac.getItems().add(productof);
         ProductoColumnaCuadro1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -461,9 +464,9 @@ public class cajeroController extends loginController{
                 connection.setAutoCommit(false);
 
                 for (Productofactura producto : productos) {
-                    String sql = "UPDATE PRODUCTOS SET stock = stock - ? WHERE codigo = ?";
+                    String sql = "UPDATE PRODUCTOS SET stock = ? WHERE codigo = ?";
                     try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                        int cantidad = Integer.parseInt(Cantidad.getText());
+                        int cantidad = producto.getFinalStock();
                         preparedStatement.setInt(1, cantidad);
                         preparedStatement.setInt(2, producto.getCodigo());
                         preparedStatement.executeUpdate();
@@ -486,7 +489,7 @@ public class cajeroController extends loginController{
     }
 
     private  void almancenarpdf(String nombre, Blob pdfurl, double total){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         fechaActual = sdf.format(new Date());
         try{
             String sql = "INSERT INTO Facturas (nombre_cajero, fechafacturacion, url_archivo, total_factura) VALUES (?,?,?,?)";
@@ -496,7 +499,7 @@ public class cajeroController extends loginController{
             preparedStatement.setDate(2, java.sql.Date.valueOf(fechaActual));
             preparedStatement.setBlob(3,pdfurl);
             preparedStatement.setDouble(4,total);
-            preparedStatement.executeQuery(sql);
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
             mostrarMensajeError("Error al actualizar el stock en la base de datos.");
