@@ -571,4 +571,5 @@ public class cajeroController extends loginController{
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+
 }
